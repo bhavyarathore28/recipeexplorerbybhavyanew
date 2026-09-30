@@ -1,10 +1,9 @@
 /**
- * ==========================================================================
- * RECIPE EXPLORER - HUMAN-DESIGNED EDITORIAL APPLICATION JAVASCRIPT
- * ==========================================================================
+ * RECIPE EXPLORER
+ * Everyday recipe discovery, weekly meal planning, and pantry ingredient matching.
  */
 
-// Global Application State
+// Application State
 const AppState = {
   currentView: 'home',
   currentRecipe: null,
@@ -37,18 +36,36 @@ const AppState = {
   }
 };
 
+// Inline SVG Line Icons
+const ICONS = {
+  clock: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
+  star: `<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`,
+  heartOutline: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`,
+  heartFilled: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`,
+  arrowRight: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>`,
+  arrowLeft: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>`,
+  close: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`,
+  check: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>`,
+  plus: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>`,
+  utensils: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>`,
+  share: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>`,
+  calendar: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>`,
+  eye: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>`,
+  play: `<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>`,
+  pause: `<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>`,
+  reset: `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>`
+};
+
 // ==========================================================================
 // DOM ELEMENT SELECTION
 // ==========================================================================
 
-// Legacy compatibility selectors
 const searchBox = document.querySelector('.searchBox') || document.getElementById('hero-search-input');
 const searchBtn = document.querySelector('.searchBtn') || document.getElementById('hero-search-submit');
 const recipeContainer = document.querySelector('.recipe-container') || document.getElementById('home-recipe-grid');
 const recipeDetailsContent = document.querySelector('.recipe-details-content') || document.getElementById('recipe-details-content');
 const recipeCloseBtn = document.querySelector('.recipe-close-btn') || document.getElementById('modal-close-btn');
 
-// Extended Elements
 const heroSearchForm = document.getElementById('hero-search-form');
 const heroSearchInput = document.getElementById('hero-search-input');
 const heroSearchClear = document.getElementById('hero-search-clear');
@@ -110,7 +127,7 @@ const timerPreset1m = document.getElementById('timer-preset-1m');
 const timerPreset5m = document.getElementById('timer-preset-5m');
 const timerPreset10m = document.getElementById('timer-preset-10m');
 
-// Pantry Section & Studio Elements
+// Pantry Elements
 const pantryCustomInput = document.getElementById('pantry-custom-input');
 const pantryAddBtn = document.getElementById('pantry-add-btn');
 const pantryChipsContainer = document.getElementById('pantry-chips-container');
@@ -224,7 +241,6 @@ const updateBadges = () => {
     mobileFavDot.style.display = count > 0 ? 'block' : 'none';
   }
 
-  // Count planned meals
   let plannedCount = 0;
   if (AppState.mealPlan) {
     Object.values(AppState.mealPlan).forEach(day => {
@@ -240,25 +256,25 @@ const updateBadges = () => {
 };
 
 // ==========================================================================
-// TOAST NOTIFICATION SYSTEM
+// TOAST NOTIFICATION SYSTEM (CLEAN & MINIMAL)
 // ==========================================================================
 
-const showToast = (message, type = 'info', icon = 'fa-check') => {
+const showToast = (message, type = 'info') => {
   if (!toastContainer) return;
   const toast = document.createElement('div');
   toast.className = `toast-item ${type === 'success' ? 'success' : ''}`;
   toast.innerHTML = `
-    <i class="fa-solid ${icon}"></i>
+    <span class="toast-check">${ICONS.check}</span>
     <span>${message}</span>
   `;
   toastContainer.appendChild(toast);
 
   setTimeout(() => {
-    toast.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+    toast.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
     toast.style.opacity = '0';
-    toast.style.transform = 'translateX(100%)';
-    setTimeout(() => toast.remove(), 260);
-  }, 3000);
+    toast.style.transform = 'translateY(8px)';
+    setTimeout(() => toast.remove(), 220);
+  }, 2800);
 };
 
 // ==========================================================================
@@ -278,37 +294,31 @@ const initCustomDropdowns = () => {
 
     if (!trigger || !menu) return;
 
-    // Toggle open
     trigger.addEventListener('click', (e) => {
       e.stopPropagation();
-      // Close other open dropdowns
       dropdowns.forEach(other => {
         if (other !== dropdown) other.classList.remove('open');
       });
       dropdown.classList.toggle('open');
     });
 
-    // Select Item
     items.forEach(item => {
       item.addEventListener('click', (e) => {
         e.stopPropagation();
         const value = item.dataset.value;
         const text = item.textContent.trim().replace(/^✓\s*/, '');
 
-        // Update active class
         items.forEach(i => i.classList.remove('selected'));
         item.classList.add('selected');
 
         if (triggerText) triggerText.textContent = text;
         dropdown.classList.remove('open');
 
-        // Update hidden native select if present
         if (hiddenSelect) {
           hiddenSelect.value = value;
           hiddenSelect.dispatchEvent(new Event('change'));
         }
 
-        // Handle explore filter updates
         if (filterKey && AppState.activeFilters) {
           AppState.activeFilters[filterKey] = value;
           executeExploreSearch();
@@ -317,14 +327,12 @@ const initCustomDropdowns = () => {
     });
   });
 
-  // Close dropdowns on outside click
   document.addEventListener('click', (e) => {
     if (!e.target.closest('.custom-dropdown')) {
       dropdowns.forEach(d => d.classList.remove('open'));
     }
   });
 
-  // Escape key closes open dropdowns
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       dropdowns.forEach(d => d.classList.remove('open'));
@@ -401,7 +409,7 @@ const API = {
 };
 
 // ==========================================================================
-// RECIPE DATA ENRICHMENT
+// RECIPE ENRICHMENT & PRACTICAL DESCRIPTIONS
 // ==========================================================================
 
 const enrichRecipe = (meal) => {
@@ -409,9 +417,11 @@ const enrichRecipe = (meal) => {
 
   const idNum = parseInt(meal.idMeal || '52772', 10) || 52772;
   const rating = (4.6 + ((idNum % 4) / 10)).toFixed(1);
-  const reviewsCount = 120 + (idNum % 340);
+  const reviewsCount = 80 + (idNum % 220);
 
-  const ingredientCount = countIngredients(meal);
+  const ingredientsList = parseIngredientsWithMeasures(meal);
+  const ingredientCount = ingredientsList.length;
+
   let cookTime = 30;
   let prepTime = 15;
   let difficulty = 'Medium';
@@ -423,7 +433,7 @@ const enrichRecipe = (meal) => {
   } else if (ingredientCount >= 12) {
     cookTime = 50;
     prepTime = 25;
-    difficulty = 'Chef Level';
+    difficulty = 'Advanced';
   }
 
   const tags = [];
@@ -434,14 +444,31 @@ const enrichRecipe = (meal) => {
     tags.push('High Protein');
   }
   if (cookTime <= 30) {
-    tags.push('Quick & Easy');
+    tags.push('Under 30 Min');
   }
 
-  let snippet = `An authentic and beloved ${meal.strCategory || 'culinary'} dish originating from ${meal.strArea || 'international'} kitchens.`;
+  // Extract top 3-4 key ingredients
+  const keyIngredients = ingredientsList.slice(0, 4).map(i => i.ingredient).join(', ');
+
+  // Extract a practical tip from the instructions
+  let tip = '';
   if (meal.strInstructions) {
-    const cleanInst = meal.strInstructions.replace(/[\r\n]+/g, ' ').trim();
-    snippet = cleanInst.length > 130 ? cleanInst.substring(0, 130) + '...' : cleanInst;
+    const sentences = meal.strInstructions.replace(/[\r\n]+/g, ' ')
+      .split(/[.!?]+/)
+      .map(s => s.trim())
+      .filter(s => s.length > 25);
+    const actionSentence = sentences.find(s =>
+      /(simmer|bake|brown|marinate|season|serve|roast|toss|rest|garnish|heat|boil|whisk)/i.test(s)
+    );
+    if (actionSentence) {
+      tip = actionSentence.charAt(0).toUpperCase() + actionSentence.slice(1) + '.';
+    }
   }
+  if (!tip) {
+    tip = `Serve hot with your preferred side dish or grains.`;
+  }
+
+  const snippet = `${prepTime} min prep · ${cookTime} min cook. Key ingredients: ${keyIngredients || 'Pantry staples'}. ${tip}`;
 
   return {
     ...meal,
@@ -452,24 +479,12 @@ const enrichRecipe = (meal) => {
     totalTime: cookTime + prepTime,
     difficulty,
     tags,
+    keyIngredients,
+    tip,
     snippet,
-    calories: 390 + (idNum % 260)
+    calories: 380 + (idNum % 240)
   };
 };
-
-const countIngredients = (meal) => {
-  let count = 0;
-  for (let i = 1; i <= 20; i++) {
-    if (meal[`strIngredient${i}`] && meal[`strIngredient${i}`].trim()) {
-      count++;
-    }
-  }
-  return count;
-};
-
-// ==========================================================================
-// INGREDIENT MEASURE & STEP PARSER
-// ==========================================================================
 
 const parseIngredientsWithMeasures = (meal) => {
   const items = [];
@@ -572,17 +587,16 @@ const renderSkeletonCards = (container, count = 6) => {
   container.innerHTML = html;
 };
 
-const renderEmptyState = (container, title, message, ctaText = 'Explore Recipes', ctaAction = () => navigateTo('explore')) => {
+const renderEmptyState = (container, title, message, ctaText = 'Browse Recipes', ctaAction = () => navigateTo('explore')) => {
   if (!container) return;
   container.innerHTML = `
     <div class="empty-state">
       <div class="empty-state-icon">
-        <i class="fa-solid fa-utensils"></i>
+        ${ICONS.utensils}
       </div>
       <h3 class="empty-state-title">${title}</h3>
       <p class="empty-state-desc">${message}</p>
       <button type="button" class="action-btn-primary empty-cta-btn">
-        <i class="fa-solid fa-compass"></i>
         <span>${ctaText}</span>
       </button>
     </div>
@@ -607,30 +621,31 @@ const createRecipeCardElement = (meal) => {
 
   card.innerHTML = `
     <div class="recipe-card-media">
-      <img src="${enriched.strMealThumb}" alt="${enriched.strMeal}" class="recipe-card-img" loading="lazy">
+      <img src="${enriched.strMealThumb}" alt="${enriched.strMeal} (${enriched.strCategory || 'Dish'})" class="recipe-card-img" loading="lazy">
       <div class="recipe-card-badges">
-        ${enriched.strArea ? `<span class="recipe-badge recipe-badge-cuisine"><i class="fa-solid fa-earth-americas"></i> ${enriched.strArea}</span>` : ''}
-        ${enriched.strCategory ? `<span class="recipe-badge recipe-badge-category"><i class="fa-solid fa-tag"></i> ${enriched.strCategory}</span>` : ''}
+        ${enriched.strArea ? `<span class="recipe-badge">${enriched.strArea}</span>` : ''}
+        ${enriched.strCategory ? `<span class="recipe-badge">${enriched.strCategory}</span>` : ''}
       </div>
-      <button type="button" class="card-favorite-btn ${isFavorited ? 'favorited' : ''}" title="${isFavorited ? 'Remove from favorites' : 'Save to favorites'}" aria-label="Favorite recipe">
-        <i class="${isFavorited ? 'fa-solid' : 'fa-regular'} fa-heart"></i>
+      <button type="button" class="card-favorite-btn ${isFavorited ? 'favorited' : ''}" title="${isFavorited ? 'Remove from saved' : 'Save recipe'}" aria-label="Favorite recipe">
+        ${isFavorited ? ICONS.heartFilled : ICONS.heartOutline}
       </button>
     </div>
     <div class="recipe-card-body">
       <div class="recipe-card-meta-top">
-        <span class="card-time"><i class="fa-regular fa-clock"></i> ${enriched.cookTime} min</span>
-        <span class="card-difficulty"><i class="fa-solid fa-gauge-high"></i> ${enriched.difficulty}</span>
+        <span class="card-time">${ICONS.clock} ${enriched.cookTime}m cook</span>
+        <span class="card-difficulty">${enriched.difficulty}</span>
       </div>
       <h3 class="recipe-card-title">${enriched.strMeal}</h3>
       <p class="recipe-card-desc">${enriched.snippet}</p>
       <div class="recipe-card-footer">
         <div class="card-rating">
-          <i class="fa-solid fa-star"></i>
+          ${ICONS.star}
           <span>${enriched.rating}</span>
+          <span class="card-reviews">(${enriched.reviewsCount})</span>
         </div>
         <button type="button" class="card-cta-btn">
-          <span>View Recipe</span>
-          <i class="fa-solid fa-arrow-right"></i>
+          <span>View recipe</span>
+          ${ICONS.arrowRight}
         </button>
       </div>
     </div>
@@ -659,17 +674,17 @@ const toggleFavorite = (meal, buttonEl) => {
   const existsIndex = AppState.favorites.findIndex(f => f.idMeal === meal.idMeal);
   if (existsIndex >= 0) {
     AppState.favorites.splice(existsIndex, 1);
-    showToast(`Removed "${meal.strMeal}" from favorites`, 'info', 'fa-heart-crack');
+    showToast(`Removed "${meal.strMeal}" from saved`);
     if (buttonEl) {
       buttonEl.classList.remove('favorited');
-      buttonEl.innerHTML = '<i class="fa-regular fa-heart"></i>';
+      buttonEl.innerHTML = ICONS.heartOutline;
     }
   } else {
     AppState.favorites.push(meal);
-    showToast(`Saved "${meal.strMeal}" to favorites!`, 'success', 'fa-heart');
+    showToast(`Saved "${meal.strMeal}"`, 'success');
     if (buttonEl) {
       buttonEl.classList.add('favorited');
-      buttonEl.innerHTML = '<i class="fa-solid fa-heart"></i>';
+      buttonEl.innerHTML = ICONS.heartFilled;
     }
   }
   saveFavorites();
@@ -689,7 +704,6 @@ const renderFavoritesView = () => {
     (m.strArea && m.strArea.toLowerCase().includes(query))
   );
 
-  // Update summary strip
   if (favSummaryCount) {
     favSummaryCount.textContent = `${AppState.favorites.length} Saved Recipes`;
   }
@@ -700,9 +714,9 @@ const renderFavoritesView = () => {
   if (filtered.length === 0) {
     renderEmptyState(
       favoritesRecipeGrid,
-      'Your cookbook journal is waiting.',
-      'Save recipes you discover and build your personal collection of culinary inspirations.',
-      'Discover Recipes',
+      'No saved recipes yet',
+      'Bookmark recipes you want to make again or cook this week.',
+      'Browse recipes',
       () => navigateTo('explore')
     );
     return;
@@ -721,17 +735,17 @@ if (favoritesSearchInput) {
 
 if (favClearAllBtn) {
   favClearAllBtn.addEventListener('click', () => {
-    if (confirm('Clear all recipes from your saved favorites?')) {
+    if (confirm('Clear all saved recipes?')) {
       AppState.favorites = [];
       saveFavorites();
       renderFavoritesView();
-      showToast('Saved recipes cleared', 'info');
+      showToast('Saved recipes cleared');
     }
   });
 }
 
 // ==========================================================================
-// RECIPE DETAIL MODAL CONTROLLER
+// RECIPE DETAIL MODAL
 // ==========================================================================
 
 const openRecipePopup = async (mealInput) => {
@@ -783,7 +797,7 @@ const renderRecipeDetailsModal = (meal) => {
 
   recipeDetailsContent.innerHTML = `
     <div class="recipe-detail-grid">
-      <!-- Left Column: Media & Stats -->
+      <!-- Media Column -->
       <div class="recipe-detail-media">
         <div class="detail-hero-img-wrap">
           <img src="${meal.strMealThumb}" alt="${meal.strMeal}" class="detail-hero-img">
@@ -791,81 +805,78 @@ const renderRecipeDetailsModal = (meal) => {
 
         <div class="detail-stats-grid">
           <div class="stat-box">
-            <div class="stat-label">Prep Time</div>
-            <div class="stat-value"><i class="fa-regular fa-clock" style="color:var(--primary);"></i> ${meal.prepTime}m</div>
+            <div class="stat-label">Prep time</div>
+            <div class="stat-value">${meal.prepTime} min</div>
           </div>
           <div class="stat-box">
-            <div class="stat-label">Cook Time</div>
-            <div class="stat-value"><i class="fa-solid fa-fire" style="color:var(--secondary);"></i> ${meal.cookTime}m</div>
+            <div class="stat-label">Cook time</div>
+            <div class="stat-value">${meal.cookTime} min</div>
           </div>
           <div class="stat-box">
-            <div class="stat-label">Total Time</div>
-            <div class="stat-value"><i class="fa-solid fa-hourglass-half" style="color:var(--success);"></i> ${meal.totalTime}m</div>
+            <div class="stat-label">Total time</div>
+            <div class="stat-value">${meal.totalTime} min</div>
           </div>
         </div>
 
-        <!-- Macro Nutritional Breakdown -->
-        <div style="background:var(--bg-card-subtle); border-radius:var(--radius-sm); padding:14px; border:1px solid var(--border); margin-bottom:16px;">
-          <div style="font-size:0.75rem; font-weight:700; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px;">
-            Estimated Nutrition (Per Serving)
-          </div>
-          <div style="display:flex; justify-content:space-between; font-weight:700; font-size:0.88rem; color:var(--text-dark);">
-            <span>🔥 ${meal.calories} kcal</span>
-            <span>🥩 28g Protein</span>
-            <span>🌾 34g Carbs</span>
-            <span>🥑 16g Fat</span>
-          </div>
+        <!-- Nutrition Summary -->
+        <div class="detail-nutrition-bar">
+          <span class="nutrition-title">Estimated per serving:</span>
+          <span class="nutrition-items">${meal.calories} kcal · 28g protein · 34g carbs · 16g fat</span>
         </div>
 
         ${meal.strYoutube ? `
-          <a href="${meal.strYoutube}" target="_blank" rel="noopener noreferrer" class="action-btn-primary" style="justify-content:center; background:#CC181E; width:100%;">
-            <i class="fa-brands fa-youtube"></i>
-            <span>Watch Video Walkthrough</span>
+          <a href="${meal.strYoutube}" target="_blank" rel="noopener noreferrer" class="action-btn-secondary" style="justify-content:center; width:100%; margin-top:14px;">
+            <span>Watch video demonstration</span>
+            ${ICONS.arrowRight}
           </a>
         ` : ''}
       </div>
 
-      <!-- Right Column: Info, Ingredients & Instructions -->
+      <!-- Content Column -->
       <div class="recipe-detail-info">
         <div class="detail-tags">
-          ${meal.strArea ? `<span class="detail-tag"><i class="fa-solid fa-earth-americas"></i> ${meal.strArea}</span>` : ''}
-          ${meal.strCategory ? `<span class="detail-tag"><i class="fa-solid fa-tag"></i> ${meal.strCategory}</span>` : ''}
-          <span class="detail-tag" style="background:var(--success-light); color:var(--success);"><i class="fa-solid fa-check"></i> Chef Tested</span>
+          ${meal.strArea ? `<span class="detail-tag">${meal.strArea}</span>` : ''}
+          ${meal.strCategory ? `<span class="detail-tag">${meal.strCategory}</span>` : ''}
+          <span class="detail-tag" style="background:var(--accent-light); color:var(--accent);">${meal.difficulty}</span>
         </div>
 
         <h2 class="detail-title recipeName" id="modal-recipe-title">${meal.strMeal}</h2>
 
         <div class="detail-rating-row">
           <div class="rating-pill">
-            <i class="fa-solid fa-star"></i>
+            ${ICONS.star}
             <span>${meal.rating}</span>
             <span style="color:var(--text-muted); font-weight:400;">(${meal.reviewsCount} reviews)</span>
           </div>
-          <span>•</span>
-          <span style="font-weight:600;"><i class="fa-solid fa-gauge-high"></i> ${meal.difficulty}</span>
+          <span>·</span>
+          <span>${meal.tags.join(' · ') || 'Family recipe'}</span>
         </div>
 
-        <!-- Detail Actions Row -->
+        <p class="detail-practical-tip">
+          <strong>Cook's tip:</strong> ${meal.tip}
+        </p>
+
+        <!-- Actions -->
         <div class="detail-actions-row">
           <button type="button" class="btn-cook-mode" id="modal-start-cook-btn">
-            <i class="fa-solid fa-utensils"></i>
+            ${ICONS.utensils}
             <span>Start Cook Mode</span>
           </button>
           <button type="button" class="btn-detail-fav ${isFavorited ? 'favorited' : ''}" id="modal-fav-btn">
-            <i class="${isFavorited ? 'fa-solid' : 'fa-regular'} fa-heart"></i>
-            <span>${isFavorited ? 'Saved' : 'Save Recipe'}</span>
+            ${isFavorited ? ICONS.heartFilled : ICONS.heartOutline}
+            <span>${isFavorited ? 'Saved' : 'Save recipe'}</span>
           </button>
           <button type="button" class="btn-detail-share" id="modal-share-btn" title="Share recipe">
-            <i class="fa-solid fa-share-nodes"></i>
+            ${ICONS.share}
             <span>Share</span>
           </button>
           <button type="button" class="btn-detail-plan" id="modal-plan-btn" title="Add to Meal Plan">
-            <i class="fa-solid fa-calendar-plus"></i>
-            <span>Plan</span>
+            ${ICONS.calendar}
+            <span>Add to plan</span>
           </button>
         </div>
 
-        <!-- Scalable Ingredients Section -->
+        <!-- Scalable Ingredients -->
         <div class="ingredients-header">
           <h3>Ingredients</h3>
           <div class="servings-stepper">
@@ -947,11 +958,7 @@ const setupModalInteractions = (meal, steps) => {
     document.querySelectorAll('.ingredient-item').forEach(label => {
       const cb = label.querySelector('.ingredient-checkbox');
       cb.addEventListener('change', () => {
-        if (cb.checked) {
-          label.classList.add('checked');
-        } else {
-          label.classList.remove('checked');
-        }
+        label.classList.toggle('checked', cb.checked);
       });
     });
   };
@@ -962,7 +969,7 @@ const setupModalInteractions = (meal, steps) => {
     favBtn.addEventListener('click', () => {
       toggleFavorite(meal, favBtn);
       const isFav = AppState.favorites.some(f => f.idMeal === meal.idMeal);
-      favBtn.querySelector('span').textContent = isFav ? 'Saved' : 'Save Recipe';
+      favBtn.querySelector('span').textContent = isFav ? 'Saved' : 'Save recipe';
     });
   }
 
@@ -970,8 +977,8 @@ const setupModalInteractions = (meal, steps) => {
   if (shareBtn) {
     shareBtn.addEventListener('click', async () => {
       const shareData = {
-        title: `Recipe: ${meal.strMeal}`,
-        text: `Check out this delicious recipe for ${meal.strMeal} on Recipe Explorer!`,
+        title: meal.strMeal,
+        text: `Recipe for ${meal.strMeal}`,
         url: window.location.href
       };
       if (navigator.share) {
@@ -980,7 +987,7 @@ const setupModalInteractions = (meal, steps) => {
         } catch (err) {}
       } else {
         navigator.clipboard.writeText(window.location.href);
-        showToast('Recipe link copied to clipboard!', 'success', 'fa-link');
+        showToast('Recipe link copied', 'success');
       }
     });
   }
@@ -1002,7 +1009,7 @@ const setupModalInteractions = (meal, steps) => {
 };
 
 // ==========================================================================
-// DISTRACTION-FREE "COOK MODE"
+// COOK MODE
 // ==========================================================================
 
 const launchCookMode = (meal, steps) => {
@@ -1030,7 +1037,7 @@ const renderCookModeStep = () => {
   const currentStep = steps[currentStepIndex];
 
   if (cookModeStepTracker) {
-    cookModeStepTracker.textContent = `Step ${currentStepIndex + 1} of ${total} (${Math.round(((currentStepIndex + 1) / total) * 100)}% Complete)`;
+    cookModeStepTracker.textContent = `Step ${currentStepIndex + 1} of ${total} (${Math.round(((currentStepIndex + 1) / total) * 100)}%)`;
   }
 
   if (cookProgressFill) {
@@ -1051,9 +1058,9 @@ const renderCookModeStep = () => {
 
   if (cookNextStepBtn) {
     if (currentStepIndex === total - 1) {
-      cookNextStepBtn.innerHTML = `<span>Complete Cooking!</span> <i class="fa-solid fa-trophy"></i>`;
+      cookNextStepBtn.innerHTML = `<span>Finish cooking</span> ${ICONS.check}`;
     } else {
-      cookNextStepBtn.innerHTML = `<span>Next Step</span> <i class="fa-solid fa-arrow-right"></i>`;
+      cookNextStepBtn.innerHTML = `<span>Next Step</span> ${ICONS.arrowRight}`;
     }
   }
 
@@ -1092,7 +1099,7 @@ if (cookNextStepBtn) {
       AppState.cookMode.currentStepIndex++;
       renderCookModeStep();
     } else {
-      showToast(`🎉 Bon Appétit! You completed ${recipe.strMeal}!`, 'success', 'fa-trophy');
+      showToast(`Finished cooking ${recipe.strMeal}`, 'success');
       exitCookMode();
     }
   });
@@ -1148,7 +1155,7 @@ window.addEventListener('keydown', (e) => {
 });
 
 // ==========================================================================
-// COOKING TIMER & WEB AUDIO CHIME
+// COOKING TIMER
 // ==========================================================================
 
 const setCookTimer = (seconds) => {
@@ -1171,7 +1178,7 @@ const startCookTimer = () => {
   if (AppState.cookMode.timerSeconds <= 0) return;
   AppState.cookMode.isTimerRunning = true;
   if (timerToggleBtn) {
-    timerToggleBtn.innerHTML = '<i class="fa-solid fa-pause"></i> Pause';
+    timerToggleBtn.innerHTML = 'Pause';
   }
 
   AppState.cookMode.timerInterval = setInterval(() => {
@@ -1182,10 +1189,10 @@ const startCookTimer = () => {
       clearInterval(AppState.cookMode.timerInterval);
       AppState.cookMode.isTimerRunning = false;
       if (timerToggleBtn) {
-        timerToggleBtn.innerHTML = '<i class="fa-solid fa-play"></i> Start';
+        timerToggleBtn.innerHTML = 'Start';
       }
       playTimerChime();
-      showToast('⏰ Cooking timer finished!', 'success', 'fa-bell');
+      showToast('Cooking timer finished', 'success');
     }
   }, 1000);
 };
@@ -1194,7 +1201,7 @@ const pauseCookTimer = () => {
   clearInterval(AppState.cookMode.timerInterval);
   AppState.cookMode.isTimerRunning = false;
   if (timerToggleBtn) {
-    timerToggleBtn.innerHTML = '<i class="fa-solid fa-play"></i> Start';
+    timerToggleBtn.innerHTML = 'Start';
   }
 };
 
@@ -1204,7 +1211,7 @@ const resetCookTimer = () => {
   AppState.cookMode.timerSeconds = AppState.cookMode.timerInitial || 0;
   updateTimerDisplay();
   if (timerToggleBtn) {
-    timerToggleBtn.innerHTML = '<i class="fa-solid fa-play"></i> Start';
+    timerToggleBtn.innerHTML = 'Start';
   }
 };
 
@@ -1277,7 +1284,7 @@ const renderWeeklyPlanner = () => {
             AppState.mealPlan[dayKey][mealType] = null;
             saveMealPlan();
             renderWeeklyPlanner();
-            showToast(`Removed from ${dayNames[idx]} ${mealType}`, 'info');
+            showToast(`Removed from ${dayNames[idx]} ${mealType}`);
           });
         }
         const viewBtn = slotCard.querySelector('.slot-view-btn');
@@ -1290,7 +1297,7 @@ const renderWeeklyPlanner = () => {
         if (addBtn) {
           addBtn.addEventListener('click', () => {
             navigateTo('explore');
-            showToast(`Choose a recipe and click "Plan" to assign to ${dayNames[idx]} ${mealType}`, 'info');
+            showToast(`Pick a recipe and click "Add to plan" to slot into ${dayNames[idx]} ${mealType}`);
           });
         }
       }
@@ -1309,11 +1316,11 @@ const renderMealSlotHtml = (dayKey, mealType, label, recipe) => {
           <img src="${recipe.strMealThumb}" alt="${recipe.strMeal}" class="slot-thumb">
           <div class="slot-details">
             <div class="slot-title">${recipe.strMeal}</div>
-            <div class="slot-meta">${recipe.strCategory || 'Meal'} • 30m</div>
+            <div class="slot-meta">${recipe.strCategory || 'Meal'} · 30m</div>
           </div>
           <div class="slot-actions">
-            <button type="button" class="slot-btn slot-view-btn" title="View details"><i class="fa-solid fa-eye"></i></button>
-            <button type="button" class="slot-btn slot-remove-btn" title="Remove meal"><i class="fa-solid fa-xmark"></i></button>
+            <button type="button" class="slot-btn slot-view-btn" title="View details" aria-label="View meal">${ICONS.eye}</button>
+            <button type="button" class="slot-btn slot-remove-btn" title="Remove meal" aria-label="Remove meal">${ICONS.close}</button>
           </div>
         </div>
       </div>
@@ -1323,7 +1330,7 @@ const renderMealSlotHtml = (dayKey, mealType, label, recipe) => {
       <div class="meal-slot" data-day="${dayKey}" data-meal="${mealType}">
         <span class="meal-slot-label">${label}</span>
         <button type="button" class="slot-empty-btn">
-          <i class="fa-solid fa-plus"></i>
+          ${ICONS.plus}
           <span>Add ${label}</span>
         </button>
       </div>
@@ -1355,7 +1362,7 @@ if (confirmAddToPlanBtn) {
       addToPlanModal.style.display = 'none';
     }
 
-    showToast(`Added "${targetRecipeForPlan.strMeal}" to ${day.toUpperCase()} ${meal.toUpperCase()}`, 'success', 'fa-calendar-check');
+    showToast(`Added "${targetRecipeForPlan.strMeal}" to ${day} ${meal}`, 'success');
     if (AppState.currentView === 'planner') {
       renderWeeklyPlanner();
     }
@@ -1371,7 +1378,7 @@ if (addToPlanClose) {
 
 if (plannerAutoGenerateBtn) {
   plannerAutoGenerateBtn.addEventListener('click', async () => {
-    showToast('Generating personalized 7-day culinary plan...', 'info', 'fa-wand-magic-sparkles');
+    showToast('Generating 7-day meal plan...');
     try {
       const [curries, pastas, chicken, seafood] = await Promise.all([
         API.filterByCategory('Vegetarian'),
@@ -1394,10 +1401,10 @@ if (plannerAutoGenerateBtn) {
 
       saveMealPlan();
       renderWeeklyPlanner();
-      showToast('✨ 7-day gourmet meal plan generated successfully!', 'success', 'fa-sparkles');
+      showToast('Weekly meal plan generated', 'success');
     } catch (e) {
       console.error('Error auto-generating meal plan:', e);
-      showToast('Could not generate plan right now. Please try again.', 'error');
+      showToast('Could not generate plan. Please try again.');
     }
   });
 }
@@ -1416,14 +1423,14 @@ if (plannerClearBtn) {
       };
       saveMealPlan();
       renderWeeklyPlanner();
-      showToast('Weekly meal plan cleared.', 'info');
+      showToast('Weekly meal plan cleared.');
     }
   });
 }
 
 const openGroceryListModal = async () => {
   if (!groceryModal) return;
-  groceryItemsContainer.innerHTML = '<div style="text-align:center; padding:30px;"><i class="fa-solid fa-spinner fa-spin" style="font-size:2rem; color:var(--primary);"></i><p style="margin-top:10px;">Aggregating grocery ingredients...</p></div>';
+  groceryItemsContainer.innerHTML = '<div style="text-align:center; padding:30px;"><p>Compiling grocery list...</p></div>';
   groceryModal.classList.add('open');
   groceryModal.style.display = 'flex';
 
@@ -1437,9 +1444,8 @@ const openGroceryListModal = async () => {
   if (plannedRecipes.length === 0) {
     groceryItemsContainer.innerHTML = `
       <div style="text-align:center; padding:32px;">
-        <i class="fa-solid fa-basket-shopping" style="font-size:2.5rem; color:var(--text-muted); margin-bottom:12px;"></i>
         <p style="font-weight:600; color:var(--text-dark);">No meals scheduled in your Weekly Planner yet.</p>
-        <p style="font-size:0.85rem; color:var(--text-secondary); margin-top:4px;">Add recipes or click "Generate My Week" to produce your shopping list automatically.</p>
+        <p style="font-size:0.88rem; color:var(--text-secondary); margin-top:4px;">Add recipes or click "Auto-Fill Week" to produce a combined shopping list.</p>
       </div>
     `;
     return;
@@ -1469,8 +1475,8 @@ const openGroceryListModal = async () => {
   ingredientMap.forEach((val) => {
     html += `
       <label class="grocery-item-row">
-        <input type="checkbox" style="width:16px; height:16px; accent-color:var(--primary);">
-        <span style="font-weight:700; color:var(--primary); min-width:80px;">${val.measures.filter(Boolean).join(' + ') || '1 portion'}</span>
+        <input type="checkbox" style="width:16px; height:16px; accent-color:var(--accent);">
+        <span style="font-weight:600; color:var(--accent); min-width:80px;">${val.measures.filter(Boolean).join(' + ') || '1 portion'}</span>
         <span style="color:var(--text-dark); text-transform:capitalize;">${val.name}</span>
       </label>
     `;
@@ -1492,8 +1498,8 @@ if (groceryCopyBtn) {
     const items = Array.from(groceryItemsContainer.querySelectorAll('.grocery-item-row'))
       .map(row => row.innerText.trim())
       .join('\n');
-    navigator.clipboard.writeText(`🛒 RECIPE EXPLORER GROCERY LIST:\n\n${items}`);
-    showToast('Grocery list copied to clipboard!', 'success', 'fa-copy');
+    navigator.clipboard.writeText(`GROCERY LIST:\n\n${items}`);
+    showToast('Grocery list copied to clipboard', 'success');
   });
 }
 if (groceryPrintBtn) {
@@ -1503,7 +1509,7 @@ if (groceryPrintBtn) {
 }
 
 // ==========================================================================
-// PANTRY MATCHING & STUDIO
+// PANTRY MATCHING & WORKBENCH
 // ==========================================================================
 
 const updatePantryChipsUI = () => {
@@ -1511,12 +1517,12 @@ const updatePantryChipsUI = () => {
 
   if (pantryChipsContainer) {
     if (count === 0) {
-      pantryChipsContainer.innerHTML = '<span class="pantry-empty-prompt" id="pantry-placeholder-text">Click staples above or type custom ingredients to match recipes...</span>';
+      pantryChipsContainer.innerHTML = '<span class="pantry-empty-prompt" id="pantry-placeholder-text">Click staples above or type an ingredient to find matching recipes.</span>';
     } else {
       pantryChipsContainer.innerHTML = AppState.pantryIngredients.map(ing => `
         <span class="pantry-chip">
           <span>${ing}</span>
-          <button type="button" class="pantry-remove-chip-btn" data-ingredient="${ing}"><i class="fa-solid fa-xmark"></i></button>
+          <button type="button" class="pantry-remove-chip-btn" data-ingredient="${ing}" aria-label="Remove ${ing}">${ICONS.close}</button>
         </span>
       `).join('');
     }
@@ -1524,12 +1530,12 @@ const updatePantryChipsUI = () => {
 
   if (pantryStudioChips) {
     if (count === 0) {
-      pantryStudioChips.innerHTML = '<span class="pantry-studio-empty">No ingredients selected yet. Click any staple to build your kitchen inventory.</span>';
+      pantryStudioChips.innerHTML = '<span class="pantry-studio-empty">No ingredients selected yet. Click staples to build your list.</span>';
     } else {
       pantryStudioChips.innerHTML = AppState.pantryIngredients.map(ing => `
         <span class="pantry-chip">
           <span>${ing}</span>
-          <button type="button" class="pantry-remove-chip-btn" data-ingredient="${ing}"><i class="fa-solid fa-xmark"></i></button>
+          <button type="button" class="pantry-remove-chip-btn" data-ingredient="${ing}" aria-label="Remove ${ing}">${ICONS.close}</button>
         </span>
       `).join('');
     }
@@ -1612,13 +1618,13 @@ if (pantryClearAllBtn) {
 
 const performPantrySearch = async () => {
   if (AppState.pantryIngredients.length === 0) {
-    showToast('Please select or add at least one pantry ingredient first.', 'info');
+    showToast('Select or add at least one pantry ingredient first.');
     return;
   }
 
   navigateTo('explore');
   renderSkeletonCards(exploreRecipeGrid, 8);
-  showToast(`Matching recipes for: ${AppState.pantryIngredients.join(', ')}...`, 'info', 'fa-kitchen-set');
+  showToast(`Searching recipes with: ${AppState.pantryIngredients.join(', ')}...`);
 
   try {
     const mainIng = AppState.pantryIngredients[0];
@@ -1626,7 +1632,7 @@ const performPantrySearch = async () => {
     renderExploreRecipes(meals);
   } catch (e) {
     console.error('Error querying by ingredients:', e);
-    renderEmptyState(exploreRecipeGrid, 'No recipes matched your pantry ingredients.', 'Try adding different staples or exploring by cuisine.');
+    renderEmptyState(exploreRecipeGrid, 'No recipes matched your pantry ingredients.', 'Try adding different staples or searching by recipe name.');
   }
 };
 
@@ -1655,7 +1661,6 @@ const executeExploreSearch = async () => {
       results = await API.searchByName('a');
     }
 
-    // Sort
     if (sort === 'alpha') {
       results.sort((a, b) => a.strMeal.localeCompare(b.strMeal));
     } else if (sort === 'rating') {
@@ -1665,7 +1670,7 @@ const executeExploreSearch = async () => {
     renderExploreRecipes(results);
   } catch (error) {
     console.error('Explore error:', error);
-    renderEmptyState(exploreRecipeGrid, 'Something went wrong.', 'Unable to load recipes. Please check your connection and try again.');
+    renderEmptyState(exploreRecipeGrid, 'Unable to load recipes', 'Please check your connection and try again.');
   }
 };
 
@@ -1679,14 +1684,14 @@ const renderExploreRecipes = (meals) => {
       exploreRecipeGrid,
       'No recipes found',
       'Try searching another ingredient, cuisine, or category.',
-      'Reset All Filters',
+      'Reset all filters',
       resetAllFilters
     );
     return;
   }
 
   if (exploreResultsCount) {
-    exploreResultsCount.innerHTML = `Showing <strong>${meals.length}</strong> delicious recipes`;
+    exploreResultsCount.innerHTML = `Showing <strong>${meals.length}</strong> recipes`;
   }
 
   meals.forEach(meal => {
@@ -1777,7 +1782,7 @@ const handleSearchInput = (inputVal) => {
       addRecentSearch(inputVal);
     }
     executeExploreSearch();
-  }, 350);
+  }, 300);
 };
 
 if (exploreSearchInput) {
@@ -1797,7 +1802,7 @@ if (exploreSearchClear) {
 }
 
 // ==========================================================================
-// HERO SEARCH & AUTOCOMPLETE
+// HERO SEARCH & SUGGESTIONS
 // ==========================================================================
 
 const renderRecentSearches = () => {
@@ -1808,9 +1813,7 @@ const renderRecentSearches = () => {
   }
   recentSearchesGroup.style.display = 'block';
   recentSearchChips.innerHTML = AppState.recentSearches.map(term => `
-    <button type="button" class="dropdown-chip" data-search="${term}">
-      <i class="fa-solid fa-clock-rotate-left"></i> ${term}
-    </button>
+    <button type="button" class="dropdown-chip" data-search="${term}">${term}</button>
   `).join('');
 
   recentSearchChips.querySelectorAll('.dropdown-chip').forEach(btn => {
@@ -1940,7 +1943,7 @@ if (catStoryBtn) {
 }
 
 // ==========================================================================
-// LEGACY COMPATIBILITY & CTAS
+// LEGACY COMPATIBILITY & FETCHING
 // ==========================================================================
 
 const fetchRecipes = async (query) => {
@@ -1950,7 +1953,7 @@ const fetchRecipes = async (query) => {
     if (homeRecipeGrid) {
       homeRecipeGrid.innerHTML = '';
       if (!meals || meals.length === 0) {
-        renderEmptyState(homeRecipeGrid, 'No recipes found.', `We couldn't find recipes matching "${query}".`);
+        renderEmptyState(homeRecipeGrid, 'No recipes found.', `Could not find recipes matching "${query}".`);
         return;
       }
       meals.forEach(meal => {
@@ -1960,7 +1963,7 @@ const fetchRecipes = async (query) => {
   } catch (error) {
     console.error('Error fetching recipes:', error);
     if (homeRecipeGrid) {
-      renderEmptyState(homeRecipeGrid, 'Something went wrong.', 'Please try searching again.');
+      renderEmptyState(homeRecipeGrid, 'Unable to load recipes.', 'Please try searching again.');
     }
   }
 };
@@ -1983,7 +1986,7 @@ if (recipeCloseBtn) recipeCloseBtn.addEventListener('click', closeRecipePopup);
 if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeRecipePopup);
 
 const triggerSurpriseMeal = async () => {
-  showToast('Finding an exquisite chef recommendation...', 'info', 'fa-dice');
+  showToast('Finding a random recipe...');
   try {
     const randomMeal = await API.getRandom();
     if (randomMeal) {
@@ -2003,7 +2006,6 @@ if (headerPantryBtn) {
   });
 }
 
-// Footer search form
 if (footerSearchForm && footerSearchInput) {
   footerSearchForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -2099,19 +2101,30 @@ const initApp = async () => {
   initCustomDropdowns();
   updatePantryChipsUI();
 
-  // Load trending recipes on home page
+  // Load popular recipes on home page
   fetchRecipes('chicken');
 
-  // Load Featured Recipe of the Day
-  try {
-    const featured = await API.lookupById('52772');
-    if (featured) {
-      const card = document.getElementById('featured-recipe-card');
-      if (card) {
-        card.addEventListener('click', () => openRecipePopup(featured));
+  // Wire spotlight recipe card on home page
+  const featuredCard = document.getElementById('featured-recipe-card');
+  if (featuredCard) {
+    featuredCard.addEventListener('click', async () => {
+      try {
+        const meal = await API.lookupById('52772');
+        if (meal) openRecipePopup(meal);
+      } catch (e) {
+        console.error(e);
       }
-    }
-  } catch (e) {}
+    });
+    featuredCard.addEventListener('keydown', async (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        try {
+          const meal = await API.lookupById('52772');
+          if (meal) openRecipePopup(meal);
+        } catch (err) {}
+      }
+    });
+  }
 
   // Handle direct hash navigation
   const currentHash = window.location.hash.replace('#', '');
