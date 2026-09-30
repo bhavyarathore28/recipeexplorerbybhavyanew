@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Recipe Explorer — Discover, Cook & Savor thousands of delicious chef-tested recipes from around the world. Featuring distraction-free Cook Mode, smart Meal Planner, and Pantry ingredient matching.">
-  <meta name="theme-color" content="#FFF9F3">
+  <meta name="description" content="Recipe Explorer — Discover, Cook & Savor chef-tested recipes from around the world. Featuring distraction-free Cook Mode, smart Meal Planner, and Pantry ingredient matching.">
+  <meta name="theme-color" content="#FAF6F0">
   
-  <title>Recipe Explorer — Discover, Cook & Savor</title>
+  <title>Recipe Explorer — Curated Recipes & Culinary Studio</title>
   
-  <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+  <!-- Google Fonts: Playfair Display (Editorial Serif) & Plus Jakarta Sans (Clean UI Sans) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -22,7 +22,7 @@
 <body>
 
   <!-- ==========================================================================
-       SITE HEADER & NAVIGATION
+       SITE HEADER & REFINED NAVIGATION
        ========================================================================== -->
   <header class="site-header" id="site-header">
     <div class="container navbar">
@@ -37,35 +37,38 @@
       <!-- Desktop Navigation Links -->
       <nav class="nav-links" id="desktop-nav" aria-label="Main Navigation">
         <a href="#home" class="nav-link active" data-view="home">
-          <i class="fa-solid fa-house"></i> Home
+          <span>Home</span>
         </a>
         <a href="#explore" class="nav-link" data-view="explore">
-          <i class="fa-solid fa-compass"></i> Explore
+          <span>Explore</span>
         </a>
-        <a href="#inspiration" class="nav-link" data-view="inspiration">
-          <i class="fa-solid fa-sparkles"></i> Categories
+        <a href="#categories" class="nav-link" data-view="categories">
+          <span>Categories</span>
         </a>
         <a href="#favorites" class="nav-link" data-view="favorites">
-          <i class="fa-solid fa-heart"></i> Favorites
+          <span>Favorites</span>
           <span class="badge-count" id="nav-fav-badge">0</span>
         </a>
         <a href="#planner" class="nav-link" data-view="planner">
-          <i class="fa-solid fa-calendar-days"></i> Meal Planner
+          <span>Meal Planner</span>
         </a>
-    </nav>
+        <a href="#pantry" class="nav-link" data-view="pantry">
+          <span>Pantry</span>
+        </a>
+      </nav>
 
       <!-- Right Header Actions -->
       <div class="header-actions">
-        <button type="button" class="action-btn" id="header-random-btn" title="Surprise Me with a Random Recipe" aria-label="Surprise recipe">
+        <button type="button" class="action-btn" id="header-random-btn" title="Surprise Me with a Chef Recommendation" aria-label="Surprise recipe">
           <i class="fa-solid fa-dice"></i>
         </button>
-        <button type="button" class="action-btn" id="header-grocery-btn" title="View Weekly Grocery List" aria-label="Grocery list">
+        <button type="button" class="action-btn" id="header-grocery-btn" title="Weekly Grocery Checklist" aria-label="Grocery list">
           <i class="fa-solid fa-basket-shopping"></i>
           <span class="btn-badge" id="grocery-badge" style="display:none;">0</span>
         </button>
         <button type="button" class="action-btn-primary" id="header-pantry-btn">
-          <i class="fa-solid fa-kitchen-set"></i>
-          <span>Kitchen Pantry</span>
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+          <span>Pantry Cook</span>
         </button>
       </div>
     </div>
@@ -82,21 +85,22 @@
     <section class="page-view active" id="view-home">
       
       <!-- HERO SECTION -->
-      <div class="hero-section">
+      <section class="hero-section">
         <div class="container hero-grid">
+          <!-- Left Column: Editorial Headline, Copy, Search, CTAs -->
           <div class="hero-content">
             <div class="hero-badge">
-              <i class="fa-solid fa-award"></i>
-              <span>Curated Culinary Discovery</span>
+              <i class="fa-solid fa-sparkles"></i>
+              <span>Artisan Culinary Discovery</span>
             </div>
             <h1 class="hero-title">
-              Discover your next <span>favorite meal.</span>
+              Discover your next <em>favorite meal.</em>
             </h1>
             <p class="hero-desc">
-              Find delicious recipes based on what you're craving, what you have, and how much time you have.
+              Curated chef-tested recipes tailored to what you crave, the ingredients in your pantry, and the time you have tonight.
             </p>
 
-            <!-- Large Hero Search Bar Component -->
+            <!-- Hero Search Component with Autocomplete Dropdown -->
             <div class="hero-search-wrapper">
               <form class="hero-search-bar" id="hero-search-form" role="search">
                 <i class="fa-solid fa-magnifying-glass search-icon-decor"></i>
@@ -104,7 +108,7 @@
                   type="text" 
                   class="hero-search-input searchBox" 
                   id="hero-search-input" 
-                  placeholder="What do you want to cook today?" 
+                  placeholder="Search dishes, ingredients (e.g. Pasta, Salmon, Curry)..." 
                   autocomplete="off"
                   aria-label="Search recipes"
                 >
@@ -127,15 +131,15 @@
                   <div class="dropdown-chips" id="recent-search-chips"></div>
                 </div>
                 <div class="dropdown-group">
-                  <div class="dropdown-group-title">Popular Searches</div>
+                  <div class="dropdown-group-title">Popular Cravings</div>
                   <div class="dropdown-chips">
                     <button type="button" class="dropdown-chip" data-search="Butter Chicken">🍗 Butter Chicken</button>
-                    <button type="button" class="dropdown-chip" data-search="Pasta">🍝 Pasta</button>
-                    <button type="button" class="dropdown-chip" data-search="Paneer">🧀 Paneer</button>
-                    <button type="button" class="dropdown-chip" data-search="Biryani">🍚 Biryani</button>
-                    <button type="button" class="dropdown-chip" data-search="Tacos">🌮 Tacos</button>
-                    <button type="button" class="dropdown-chip" data-search="Salmon">🐟 Salmon</button>
-                    <button type="button" class="dropdown-chip" data-search="Chocolate Cake">🍰 Chocolate Cake</button>
+                    <button type="button" class="dropdown-chip" data-search="Pasta">🍝 Artisan Pasta</button>
+                    <button type="button" class="dropdown-chip" data-search="Paneer">🧀 Paneer Curry</button>
+                    <button type="button" class="dropdown-chip" data-search="Biryani">🍚 Royal Biryani</button>
+                    <button type="button" class="dropdown-chip" data-search="Tacos">🌮 Street Tacos</button>
+                    <button type="button" class="dropdown-chip" data-search="Salmon">🐟 Pan-Seared Salmon</button>
+                    <button type="button" class="dropdown-chip" data-search="Chocolate Cake">🍰 Warm Chocolate Tart</button>
                   </div>
                 </div>
               </div>
@@ -143,75 +147,112 @@
 
             <!-- Quick Filter Badges below Search -->
             <div class="hero-quick-filters">
-              <span class="quick-filter-label">Try quick filters:</span>
-              <button type="button" class="quick-tag" data-tag="Quick & Easy"><i class="fa-solid fa-bolt"></i> Quick & Easy</button>
+              <span class="quick-filter-label">Quick Collections:</span>
+              <button type="button" class="quick-tag" data-tag="Quick & Easy"><i class="fa-solid fa-bolt"></i> Under 30 Min</button>
               <button type="button" class="quick-tag" data-tag="Vegetarian"><i class="fa-solid fa-leaf"></i> Vegetarian</button>
               <button type="button" class="quick-tag" data-tag="High Protein"><i class="fa-solid fa-dumbbell"></i> High Protein</button>
-              <button type="button" class="quick-tag" data-tag="Healthy"><i class="fa-solid fa-apple-whole"></i> Healthy</button>
-              <button type="button" class="quick-tag" data-tag="Breakfast"><i class="fa-solid fa-mug-saucer"></i> Breakfast</button>
-              <button type="button" class="quick-tag" data-tag="Dinner"><i class="fa-solid fa-utensils"></i> Dinner</button>
-              <button type="button" class="quick-tag" data-tag="Dessert"><i class="fa-solid fa-cake-candles"></i> Desserts</button>
+              <button type="button" class="quick-tag" data-tag="Healthy"><i class="fa-solid fa-apple-whole"></i> Wholesome</button>
+              <button type="button" class="quick-tag" data-tag="Dessert"><i class="fa-solid fa-cake-candles"></i> Patisserie</button>
+            </div>
+
+            <!-- Exploration Dual CTAs -->
+            <div class="hero-actions-row">
+              <a href="#explore" class="action-btn-primary">
+                <i class="fa-solid fa-compass"></i>
+                <span>Explore All Recipes</span>
+              </a>
+              <button type="button" class="action-btn-secondary" id="hero-surprise-btn">
+                <i class="fa-solid fa-dice"></i>
+                <span>Surprise Recommendation</span>
+              </button>
             </div>
           </div>
 
-          <!-- Featured Recipe Showcase Card -->
-          <div class="hero-featured-wrap" id="hero-featured-container">
-            <!-- Dynamically populated or default featured card -->
-            <div class="hero-featured-card" id="featured-recipe-card">
-              <div class="hero-card-img-wrap">
-                <img 
-                  src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=800&q=80" 
-                  alt="Aromatic Indian Butter Chicken" 
-                  id="featured-card-img"
-                  loading="lazy"
-                >
-                <div class="hero-floating-badge">
-                  <i class="fa-solid fa-fire"></i> Chef's Recommendation
+          <!-- Right Column: Animated Floating Food Collage -->
+          <div class="hero-food-collage" id="hero-featured-container">
+            <div class="collage-glow"></div>
+            <div class="collage-item collage-item-1">
+              <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=400&q=80" alt="Indian Butter Chicken" loading="eager">
+              <span class="collage-label">🍛 Butter Chicken</span>
+            </div>
+            <div class="collage-item collage-item-2">
+              <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=400&q=80" alt="Italian Pasta" loading="eager">
+              <span class="collage-label">🍝 Fresh Pasta</span>
+            </div>
+            <div class="collage-item collage-item-3">
+              <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80" alt="Healthy Salad" loading="eager">
+              <span class="collage-label">🥗 Garden Bowl</span>
+            </div>
+            <div class="collage-item collage-item-4">
+              <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=400&q=80" alt="Mexican Tacos" loading="eager">
+              <span class="collage-label">🌮 Street Tacos</span>
+            </div>
+            <div class="collage-item collage-item-5">
+              <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=400&q=80" alt="Dessert" loading="eager">
+              <span class="collage-label">🍰 Chocolate Tart</span>
+            </div>
+            <!-- Floating Ingredient Icons -->
+            <div class="floating-ingredient fi-1">🍅</div>
+            <div class="floating-ingredient fi-2">🧄</div>
+            <div class="floating-ingredient fi-3">🌿</div>
+            <div class="floating-ingredient fi-4">🫒</div>
+            <div class="floating-ingredient fi-5">🌶️</div>
+            <div class="floating-ingredient fi-6">🧀</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EDITORIAL STORY HIGHLIGHT SECTION -->
+      <section class="editorial-story-section">
+        <div class="container">
+          <div class="editorial-banner">
+            <div class="editorial-banner-content">
+              <span class="section-tag"><i class="fa-solid fa-book-open"></i> Culinary Story</span>
+              <h2 class="editorial-banner-title">Cooking is an art, savoring is a celebration.</h2>
+              <p class="editorial-banner-desc">
+                From slow-simmered weekend curries to 20-minute weeknight pan dishes, explore curated steps tested by professional culinary editors for perfect kitchen results.
+              </p>
+              <div class="editorial-stats-strip">
+                <div class="stat-item">
+                  <span class="stat-number">500+</span>
+                  <span class="stat-text">Tested Recipes</span>
                 </div>
-                <button type="button" class="hero-card-favorite-btn" id="featured-card-fav" title="Save to Favorites" aria-label="Favorite recipe">
-                  <i class="fa-regular fa-heart"></i>
-                </button>
-              </div>
-              <div class="hero-card-content">
-                <div class="hero-card-meta">
-                  <span id="featured-card-cuisine"><i class="fa-solid fa-earth-americas"></i> Indian</span>
-                  <span>•</span>
-                  <span id="featured-card-time"><i class="fa-regular fa-clock"></i> 35 min</span>
-                  <span>•</span>
-                  <span id="featured-card-difficulty"><i class="fa-solid fa-gauge-high"></i> Medium</span>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                  <span class="stat-number">28</span>
+                  <span class="stat-text">World Cuisines</span>
                 </div>
-                <h3 class="hero-card-title" id="featured-card-title">Authentic Butter Chicken (Murgh Makhani)</h3>
-                <p class="hero-card-desc" id="featured-card-desc">
-                  Tender spiced chicken simmered in a velvety, buttery tomato cream gravy with aromatic fenugreek and garam masala.
-                </p>
-                <div class="hero-card-footer">
-                  <div class="rating-pill">
-                    <i class="fa-solid fa-star"></i>
-                    <span>4.9</span>
-                    <span style="font-weight:400; color:var(--text-muted); font-size:0.8rem;">(340+ reviews)</span>
-                  </div>
-                  <button type="button" class="hero-cook-btn" id="featured-card-btn">
-                    <span>View Recipe</span>
-                    <i class="fa-solid fa-arrow-right"></i>
-                  </button>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                  <span class="stat-number">100%</span>
+                  <span class="stat-text">Free & Distraction-Free</span>
                 </div>
               </div>
             </div>
+            <div class="editorial-banner-media">
+              <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=800&q=80" alt="Fresh artisan cooking ingredients and spices" loading="lazy">
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
       <!-- INSPIRATION / CATEGORIES SECTION -->
       <section class="inspiration-section" id="inspiration-section">
         <div class="container">
-          <div class="section-header">
-            <span class="section-tag"><i class="fa-solid fa-sparkles"></i> Inspiration</span>
-            <h2 class="section-title">What are you craving?</h2>
-            <p class="section-subtitle">Explore curated collections crafted for every mood, moment, and dietary preference.</p>
+          <div class="section-header-flex">
+            <div>
+              <span class="section-tag"><i class="fa-solid fa-layer-group"></i> Curated Collections</span>
+              <h2 class="section-title">What are you craving tonight?</h2>
+              <p class="section-subtitle">Explore hand-crafted culinary collections shaped for every mood, moment, and appetite.</p>
+            </div>
+            <a href="#categories" class="action-btn-ghost">
+              <span>View All Categories</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
           </div>
 
           <div class="category-grid" id="inspiration-category-grid">
-            <!-- 8 Curated Editorial Category Cards -->
+            <!-- 8 Curated Category Cards -->
             <div class="category-card" data-category="Quick & Easy" data-query="Pasta">
               <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80" alt="Quick and Easy Meals" class="category-card-img" loading="lazy">
               <div class="category-card-overlay">
@@ -225,17 +266,17 @@
               <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80" alt="Comfort Food" class="category-card-img" loading="lazy">
               <div class="category-card-overlay">
                 <span class="category-badge-count">Hearty & Rich</span>
-                <h3 class="category-card-title">Comfort Food</h3>
-                <p class="category-card-desc">Warm stews, rich casseroles, and soul-satisfying classics.</p>
+                <h3 class="category-card-title">Comfort Classics</h3>
+                <p class="category-card-desc">Warm stews, rich braises, and soul-satisfying classics.</p>
               </div>
             </div>
 
             <div class="category-card" data-category="Healthy Choices" data-query="Vegetarian">
               <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80" alt="Healthy Choices" class="category-card-img" loading="lazy">
               <div class="category-card-overlay">
-                <span class="category-badge-count">Nutrient Packed</span>
-                <h3 class="category-card-title">Healthy Choices</h3>
-                <p class="category-card-desc">Vibrant salad bowls, grain plates, and wholesome recipes.</p>
+                <span class="category-badge-count">Nutrient Dense</span>
+                <h3 class="category-card-title">Wholesome Greens</h3>
+                <p class="category-card-desc">Vibrant salad bowls, grain plates, and plant-forward recipes.</p>
               </div>
             </div>
 
@@ -244,15 +285,15 @@
               <div class="category-card-overlay">
                 <span class="category-badge-count">Macro Fuel</span>
                 <h3 class="category-card-title">High Protein</h3>
-                <p class="category-card-desc">Lean meats, eggs, and plant-based protein powerhouses.</p>
+                <p class="category-card-desc">Lean poultry, fish, eggs, and protein-packed specialties.</p>
               </div>
             </div>
 
             <div class="category-card" data-category="Indian Favorites" data-area="Indian">
               <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=800&q=80" alt="Indian Favorites" class="category-card-img" loading="lazy">
               <div class="category-card-overlay">
-                <span class="category-badge-count">Spices & Curries</span>
-                <h3 class="category-card-title">Indian Favorites</h3>
+                <span class="category-badge-count">Aromatic Spices</span>
+                <h3 class="category-card-title">Indian Curries</h3>
                 <p class="category-card-desc">Rich biryanis, aromatic curries, dals, and tandoori breads.</p>
               </div>
             </div>
@@ -260,18 +301,18 @@
             <div class="category-card" data-category="Dessert" data-category-filter="Dessert">
               <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=800&q=80" alt="Sweet Desserts" class="category-card-img" loading="lazy">
               <div class="category-card-overlay">
-                <span class="category-badge-count">Sweet Treats</span>
+                <span class="category-badge-count">Sweet Indulgence</span>
                 <h3 class="category-card-title">Decadent Desserts</h3>
-                <p class="category-card-desc">Gourmet cakes, chocolate tarts, puddings, and pastries.</p>
+                <p class="category-card-desc">Gourmet cakes, chocolate tarts, puddings, and warm pastries.</p>
               </div>
             </div>
 
             <div class="category-card" data-category="Italian Classics" data-area="Italian">
               <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80" alt="Italian Classics" class="category-card-img" loading="lazy">
               <div class="category-card-overlay">
-                <span class="category-badge-count">Artisan Pasta & Pizza</span>
-                <h3 class="category-card-title">Italian Classics</h3>
-                <p class="category-card-desc">Authentic hand-tossed pizzas, risottos, and fresh pasta sauces.</p>
+                <span class="category-badge-count">Artisan Pasta</span>
+                <h3 class="category-card-title">Italian Trattoria</h3>
+                <p class="category-card-desc">Authentic hand-made pastas, risottos, and rustic sauces.</p>
               </div>
             </div>
 
@@ -280,24 +321,24 @@
               <div class="category-card-overlay">
                 <span class="category-badge-count">Ocean Fresh</span>
                 <h3 class="category-card-title">Seafood Delights</h3>
-                <p class="category-card-desc">Crispy garlic prawns, pan-seared salmon, and coastal curries.</p>
+                <p class="category-card-desc">Pan-seared salmon, crispy garlic prawns, and coastal bisques.</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- PANTRY / "WHAT'S IN YOUR KITCHEN?" SECTION -->
+      <!-- PANTRY SECTION -->
       <section class="pantry-section" id="pantry-section">
         <div class="container">
           <div class="pantry-box">
             <div class="pantry-info">
-              <span class="section-tag"><i class="fa-solid fa-kitchen-set"></i> Smart Kitchen</span>
-              <h3>What's in your kitchen?</h3>
-              <p>Tell us what ingredients you already have in your fridge or pantry, and discover delicious meals you can cook right now without grocery shopping.</p>
+              <span class="section-tag"><i class="fa-solid fa-kitchen-set"></i> Kitchen Inventory</span>
+              <h3>What's in your kitchen today?</h3>
+              <p>Tell us what ingredients you already have in your pantry or fridge, and our culinary engine will find delicious recipes you can cook immediately without grocery shopping.</p>
               
               <div class="pantry-popular-tags">
-                <span style="font-size:0.82rem; font-weight:700; color:var(--text-muted); width:100%;">Popular pantry staples:</span>
+                <span class="pantry-tags-label">Popular staples to add:</span>
                 <button type="button" class="pantry-tag-btn" data-ingredient="chicken">🍗 Chicken</button>
                 <button type="button" class="pantry-tag-btn" data-ingredient="tomato">🍅 Tomato</button>
                 <button type="button" class="pantry-tag-btn" data-ingredient="garlic">🧄 Garlic</button>
@@ -307,6 +348,7 @@
                 <button type="button" class="pantry-tag-btn" data-ingredient="egg">🥚 Egg</button>
                 <button type="button" class="pantry-tag-btn" data-ingredient="potato">🥔 Potato</button>
                 <button type="button" class="pantry-tag-btn" data-ingredient="lemon">🍋 Lemon</button>
+                <button type="button" class="pantry-tag-btn" data-ingredient="mushroom">🍄 Mushroom</button>
               </div>
             </div>
 
@@ -320,13 +362,19 @@
                   placeholder="Type an ingredient (e.g. spinach, cheese)..."
                   aria-label="Add pantry ingredient"
                 >
-                <button type="button" class="pantry-add-btn" id="pantry-add-btn">Add</button>
+                <button type="button" class="pantry-add-btn" id="pantry-add-btn">Add to Pantry</button>
               </div>
 
-              <div class="pantry-selected-chips" id="pantry-chips-container">
-                <span style="color:var(--text-muted); font-size:0.85rem; padding:6px;" id="pantry-placeholder-text">
-                  Selected ingredients will appear here...
-                </span>
+              <div class="pantry-selected-tray">
+                <div class="pantry-tray-header">
+                  <span>Selected Ingredients:</span>
+                  <button type="button" class="pantry-clear-all-btn" id="pantry-clear-all-btn" style="display:none;">Clear All</button>
+                </div>
+                <div class="pantry-selected-chips" id="pantry-chips-container">
+                  <span class="pantry-empty-prompt" id="pantry-placeholder-text">
+                    Click staples above or type custom ingredients to match recipes...
+                  </span>
+                </div>
               </div>
 
               <button type="button" class="pantry-submit-btn" id="pantry-search-submit">
@@ -341,19 +389,19 @@
       <!-- HOME TRENDING RECIPES SECTION -->
       <section class="explore-section" id="home-trending-section">
         <div class="container">
-          <div class="section-header" style="display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+          <div class="section-header-flex">
             <div>
-              <span class="section-tag"><i class="fa-solid fa-fire"></i> Trending Now</span>
-              <h2 class="section-title">Popular Recipes</h2>
-              <p class="section-subtitle">Top rated dishes curated from our culinary community.</p>
+              <span class="section-tag"><i class="fa-solid fa-fire"></i> Trending Culinary Picks</span>
+              <h2 class="section-title">Popular Chef Creations</h2>
+              <p class="section-subtitle">Top-rated dishes prepared and loved by home cooks across the globe.</p>
             </div>
-            <a href="#explore" class="action-btn-primary" style="align-self:flex-start;">
-              <span>View All Recipes</span>
+            <a href="#explore" class="action-btn-primary">
+              <span>Explore All Recipes</span>
               <i class="fa-solid fa-arrow-right"></i>
             </a>
           </div>
 
-          <!-- Recipe Container for Results (reuses existing class .recipe-container for compatibility) -->
+          <!-- Recipe Container for Results (reuses .recipe-container) -->
           <div class="recipe-grid recipe-container" id="home-recipe-grid">
             <!-- Dynamic Recipe Cards Rendered Here -->
           </div>
@@ -367,21 +415,31 @@
          ========================================================================== -->
     <section class="page-view" id="view-explore" style="display:none;">
       <div class="container explore-section">
-        <div class="section-header">
-          <span class="section-tag"><i class="fa-solid fa-compass"></i> Discovery</span>
-          <h1 class="section-title">Explore Recipes</h1>
-          <p class="section-subtitle">Search, filter, and discover hundreds of chef-tested dishes from all around the globe.</p>
+        <div class="explore-hero-banner">
+          <div class="explore-hero-text">
+            <span class="section-tag"><i class="fa-solid fa-compass"></i> Culinary Discovery</span>
+            <h1 class="section-title">Explore Recipes</h1>
+            <p class="section-subtitle">Filter by international cuisine, dietary needs, preparation time, and difficulty.</p>
+          </div>
+          <div class="explore-view-toggles">
+            <button type="button" class="view-toggle-btn active" id="view-grid-btn" title="Grid View" aria-label="Grid view">
+              <i class="fa-solid fa-grip"></i>
+            </button>
+            <button type="button" class="view-toggle-btn" id="view-list-btn" title="Editorial List View" aria-label="List view">
+              <i class="fa-solid fa-list-ul"></i>
+            </button>
+          </div>
         </div>
 
-        <!-- Filter Controls Bar -->
+        <!-- Filter Controls Bar with Custom Dropdowns -->
         <div class="explore-filter-bar">
           <div class="filter-row-top">
             <div class="explore-search-input-wrap">
-              <i class="fa-solid fa-magnifying-glass" style="color:var(--primary); margin-right:10px;"></i>
+              <i class="fa-solid fa-magnifying-glass" style="color:var(--primary);"></i>
               <input 
                 type="text" 
                 id="explore-search-input" 
-                placeholder="Search recipe by name or ingredient..."
+                placeholder="Search recipe by name, ingredient, or keyword..."
                 autocomplete="off"
                 aria-label="Search recipes in explore"
               >
@@ -391,11 +449,33 @@
             </div>
           </div>
 
-          <div class="filter-row-bottom">
-            <!-- Cuisine Filter -->
-            <div class="filter-select-group">
-              <span class="filter-label"><i class="fa-solid fa-earth-americas"></i> Cuisine:</span>
-              <select class="filter-select" id="filter-cuisine" aria-label="Filter by cuisine">
+          <!-- Custom Dropdowns Filter Row -->
+          <div class="filter-row-bottom" id="explore-dropdowns-row">
+            
+            <!-- Custom Cuisine Dropdown -->
+            <div class="custom-dropdown" id="dropdown-cuisine" data-filter="cuisine">
+              <span class="dropdown-label"><i class="fa-solid fa-earth-americas"></i> Cuisine</span>
+              <button type="button" class="dropdown-trigger" aria-haspopup="listbox" aria-expanded="false">
+                <span class="trigger-text">All Cuisines</span>
+                <i class="fa-solid fa-chevron-down trigger-icon"></i>
+              </button>
+              <div class="dropdown-menu" role="listbox">
+                <div class="dropdown-item selected" data-value="all"><i class="fa-solid fa-globe"></i> All Cuisines</div>
+                <div class="dropdown-item" data-value="Indian"><i class="fa-solid fa-pepper-hot"></i> Indian</div>
+                <div class="dropdown-item" data-value="Italian"><i class="fa-solid fa-pizza-slice"></i> Italian</div>
+                <div class="dropdown-item" data-value="Mexican"><i class="fa-solid fa-bowl-rice"></i> Mexican</div>
+                <div class="dropdown-item" data-value="Chinese"><i class="fa-solid fa-bowl-food"></i> Chinese</div>
+                <div class="dropdown-item" data-value="American"><i class="fa-solid fa-burger"></i> American</div>
+                <div class="dropdown-item" data-value="French"><i class="fa-solid fa-bread-slice"></i> French</div>
+                <div class="dropdown-item" data-value="Japanese"><i class="fa-solid fa-fish"></i> Japanese</div>
+                <div class="dropdown-item" data-value="Thai"><i class="fa-solid fa-leaf"></i> Thai</div>
+                <div class="dropdown-item" data-value="British"><i class="fa-solid fa-mug-hot"></i> British</div>
+                <div class="dropdown-item" data-value="Spanish"><i class="fa-solid fa-lemon"></i> Spanish</div>
+                <div class="dropdown-item" data-value="Greek"><i class="fa-solid fa-cheese"></i> Greek</div>
+                <div class="dropdown-item" data-value="Moroccan"><i class="fa-solid fa-fire-burner"></i> Moroccan</div>
+              </div>
+              <!-- Hidden native select for fallback -->
+              <select class="filter-select sr-only" id="filter-cuisine" aria-label="Filter by cuisine">
                 <option value="all">All Cuisines</option>
                 <option value="Indian">Indian</option>
                 <option value="Italian">Italian</option>
@@ -412,10 +492,27 @@
               </select>
             </div>
 
-            <!-- Diet / Category Filter -->
-            <div class="filter-select-group">
-              <span class="filter-label"><i class="fa-solid fa-tag"></i> Category:</span>
-              <select class="filter-select" id="filter-category" aria-label="Filter by category">
+            <!-- Custom Category / Diet Dropdown -->
+            <div class="custom-dropdown" id="dropdown-category" data-filter="category">
+              <span class="dropdown-label"><i class="fa-solid fa-tag"></i> Category</span>
+              <button type="button" class="dropdown-trigger" aria-haspopup="listbox" aria-expanded="false">
+                <span class="trigger-text">All Categories</span>
+                <i class="fa-solid fa-chevron-down trigger-icon"></i>
+              </button>
+              <div class="dropdown-menu" role="listbox">
+                <div class="dropdown-item selected" data-value="all"><i class="fa-solid fa-border-all"></i> All Categories</div>
+                <div class="dropdown-item" data-value="Vegetarian"><i class="fa-solid fa-leaf"></i> Vegetarian</div>
+                <div class="dropdown-item" data-value="Vegan"><i class="fa-solid fa-seedling"></i> Vegan</div>
+                <div class="dropdown-item" data-value="Chicken"><i class="fa-solid fa-drumstick-bite"></i> Chicken</div>
+                <div class="dropdown-item" data-value="Seafood"><i class="fa-solid fa-shrimp"></i> Seafood</div>
+                <div class="dropdown-item" data-value="Beef"><i class="fa-solid fa-bacon"></i> Beef</div>
+                <div class="dropdown-item" data-value="Pasta"><i class="fa-solid fa-wheat-awn"></i> Pasta</div>
+                <div class="dropdown-item" data-value="Breakfast"><i class="fa-solid fa-egg"></i> Breakfast</div>
+                <div class="dropdown-item" data-value="Dessert"><i class="fa-solid fa-cake-candles"></i> Dessert</div>
+                <div class="dropdown-item" data-value="Starter"><i class="fa-solid fa-bowl-rice"></i> Starter</div>
+                <div class="dropdown-item" data-value="Side"><i class="fa-solid fa-carrot"></i> Side Dish</div>
+              </div>
+              <select class="filter-select sr-only" id="filter-category" aria-label="Filter by category">
                 <option value="all">All Categories</option>
                 <option value="Vegetarian">Vegetarian</option>
                 <option value="Vegan">Vegan</option>
@@ -430,10 +527,20 @@
               </select>
             </div>
 
-            <!-- Cooking Time Filter -->
-            <div class="filter-select-group">
-              <span class="filter-label"><i class="fa-regular fa-clock"></i> Time:</span>
-              <select class="filter-select" id="filter-time" aria-label="Filter by cooking time">
+            <!-- Custom Cooking Time Dropdown -->
+            <div class="custom-dropdown" id="dropdown-time" data-filter="time">
+              <span class="dropdown-label"><i class="fa-regular fa-clock"></i> Time</span>
+              <button type="button" class="dropdown-trigger" aria-haspopup="listbox" aria-expanded="false">
+                <span class="trigger-text">Any Time</span>
+                <i class="fa-solid fa-chevron-down trigger-icon"></i>
+              </button>
+              <div class="dropdown-menu" role="listbox">
+                <div class="dropdown-item selected" data-value="all"><i class="fa-regular fa-clock"></i> Any Time</div>
+                <div class="dropdown-item" data-value="15"><i class="fa-solid fa-bolt"></i> Under 15 min</div>
+                <div class="dropdown-item" data-value="30"><i class="fa-solid fa-gauge"></i> Under 30 min</div>
+                <div class="dropdown-item" data-value="60"><i class="fa-solid fa-hourglass-half"></i> Under 60 min</div>
+              </div>
+              <select class="filter-select sr-only" id="filter-time" aria-label="Filter by cooking time">
                 <option value="all">Any Time</option>
                 <option value="15">Under 15 min</option>
                 <option value="30">Under 30 min</option>
@@ -441,30 +548,51 @@
               </select>
             </div>
 
-            <!-- Difficulty Filter -->
-            <div class="filter-select-group">
-              <span class="filter-label"><i class="fa-solid fa-gauge-high"></i> Difficulty:</span>
-              <select class="filter-select" id="filter-difficulty" aria-label="Filter by difficulty">
+            <!-- Custom Difficulty Dropdown -->
+            <div class="custom-dropdown" id="dropdown-difficulty" data-filter="difficulty">
+              <span class="dropdown-label"><i class="fa-solid fa-gauge-high"></i> Difficulty</span>
+              <button type="button" class="dropdown-trigger" aria-haspopup="listbox" aria-expanded="false">
+                <span class="trigger-text">All Levels</span>
+                <i class="fa-solid fa-chevron-down trigger-icon"></i>
+              </button>
+              <div class="dropdown-menu" role="listbox">
+                <div class="dropdown-item selected" data-value="all"><i class="fa-solid fa-sliders"></i> All Levels</div>
+                <div class="dropdown-item" data-value="Easy"><i class="fa-solid fa-circle-check"></i> Easy</div>
+                <div class="dropdown-item" data-value="Medium"><i class="fa-solid fa-fire"></i> Medium</div>
+                <div class="dropdown-item" data-value="Hard"><i class="fa-solid fa-hat-chef"></i> Chef Level</div>
+              </div>
+              <select class="filter-select sr-only" id="filter-difficulty" aria-label="Filter by difficulty">
                 <option value="all">All Levels</option>
                 <option value="Easy">Easy</option>
                 <option value="Medium">Medium</option>
-                <option value="Hard">Hard</option>
+                <option value="Hard">Chef Level</option>
               </select>
             </div>
 
-            <!-- Sort Option -->
-            <div class="filter-select-group">
-              <span class="filter-label"><i class="fa-solid fa-arrow-down-short-wide"></i> Sort:</span>
-              <select class="filter-select" id="filter-sort" aria-label="Sort recipes">
+            <!-- Custom Sort Dropdown -->
+            <div class="custom-dropdown" id="dropdown-sort" data-filter="sort">
+              <span class="dropdown-label"><i class="fa-solid fa-arrow-down-short-wide"></i> Sort</span>
+              <button type="button" class="dropdown-trigger" aria-haspopup="listbox" aria-expanded="false">
+                <span class="trigger-text">Featured</span>
+                <i class="fa-solid fa-chevron-down trigger-icon"></i>
+              </button>
+              <div class="dropdown-menu" role="listbox">
+                <div class="dropdown-item selected" data-value="featured"><i class="fa-solid fa-star"></i> Featured</div>
+                <div class="dropdown-item" data-value="rating"><i class="fa-solid fa-thumbs-up"></i> Highest Rated</div>
+                <div class="dropdown-item" data-value="time"><i class="fa-solid fa-stopwatch"></i> Fastest Cooking</div>
+                <div class="dropdown-item" data-value="alpha"><i class="fa-solid fa-arrow-down-a-z"></i> Alphabetical (A-Z)</div>
+              </div>
+              <select class="filter-select sr-only" id="filter-sort" aria-label="Sort recipes">
                 <option value="featured">Featured</option>
                 <option value="rating">Highest Rated</option>
                 <option value="time">Fastest Cooking</option>
                 <option value="alpha">Alphabetical (A-Z)</option>
               </select>
             </div>
+
           </div>
 
-          <!-- Horizontal Filter Chips for Quick Mobile Filtering -->
+          <!-- Horizontal Quick Filter Chips -->
           <div class="horizontal-filter-scroll" id="explore-chips-container">
             <button type="button" class="filter-chip active" data-chip="all">All Dishes</button>
             <button type="button" class="filter-chip" data-chip="Chicken">🍗 Chicken</button>
@@ -482,69 +610,196 @@
         <!-- Results Header / Status Bar -->
         <div class="results-status-bar">
           <div class="results-count" id="explore-results-count">
-            Showing <strong>0</strong> delicious recipes
+            Showing <strong>0</strong> recipes
           </div>
           <button type="button" class="clear-all-filters-btn" id="explore-clear-filters-btn" style="display:none;">
-            <i class="fa-solid fa-rotate-left"></i> Clear All Filters
+            <i class="fa-solid fa-rotate-left"></i> Reset All Filters
           </button>
         </div>
 
         <!-- Explore Recipe Grid -->
         <div class="recipe-grid" id="explore-recipe-grid">
-          <!-- Dynamically populated or skeleton loaders -->
+          <!-- Dynamically populated -->
         </div>
       </div>
     </section>
 
     <!-- ==========================================================================
-         VIEW 3: FAVORITES PAGE
+         VIEW 3: CATEGORIES & INSPIRATION PAGE (DEDICATED FULL VIEW)
+         ========================================================================== -->
+    <section class="page-view" id="view-categories" style="display:none;">
+      <div class="container explore-section">
+        <div class="section-header">
+          <span class="section-tag"><i class="fa-solid fa-layer-group"></i> Visual Pantry</span>
+          <h1 class="section-title">Explore by Category & Cuisine</h1>
+          <p class="section-subtitle">Dive into rich culinary traditions and distinct food philosophies from around the world.</p>
+        </div>
+
+        <!-- Featured Category Large Banner Story -->
+        <div class="category-featured-story">
+          <div class="cat-story-content">
+            <span class="cat-story-tag">Culinary Tradition Spotlight</span>
+            <h2 class="cat-story-title">Artisan Italian & Mediterranean</h2>
+            <p class="cat-story-desc">
+              Discover the beauty of slow-simmered ragùs, fresh egg pasta doughs, crisp focaccias, and herb-infused olive oil dressings created with timeless craftsmanship.
+            </p>
+            <button type="button" class="action-btn-primary" id="cat-story-btn" data-area="Italian">
+              <i class="fa-solid fa-compass"></i>
+              <span>Explore Italian Collection</span>
+            </button>
+          </div>
+          <div class="cat-story-image">
+            <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=900&q=80" alt="Fresh artisan tagliatelle and herb garnish" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Rich Visual Category Grid -->
+        <div class="categories-editorial-grid">
+          
+          <div class="cat-editorial-card" data-area="Indian">
+            <div class="cat-img-box">
+              <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=800&q=80" alt="Indian Curries" loading="lazy">
+              <span class="cat-pill">Spices & Curries</span>
+            </div>
+            <div class="cat-body">
+              <h3>Indian Subcontinent</h3>
+              <p>Royal biryanis, aromatic gravies, dal tadkas, and clay-oven tandoori breads.</p>
+              <div class="cat-link"><span>Explore Indian</span> <i class="fa-solid fa-arrow-right"></i></div>
+            </div>
+          </div>
+
+          <div class="cat-editorial-card" data-category-filter="Vegetarian">
+            <div class="cat-img-box">
+              <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80" alt="Plant-Forward Vegetarian" loading="lazy">
+              <span class="cat-pill">Nutrient Rich</span>
+            </div>
+            <div class="cat-body">
+              <h3>Plant-Forward & Vegetarian</h3>
+              <p>Wholesome grain bowls, roasted garden veggies, fresh herbs, and savory legumes.</p>
+              <div class="cat-link"><span>Explore Vegetarian</span> <i class="fa-solid fa-arrow-right"></i></div>
+            </div>
+          </div>
+
+          <div class="cat-editorial-card" data-category-filter="Seafood">
+            <div class="cat-img-box">
+              <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=800&q=80" alt="Ocean Fresh Seafood" loading="lazy">
+              <span class="cat-pill">Coastal Fare</span>
+            </div>
+            <div class="cat-body">
+              <h3>Coastal & Ocean Seafood</h3>
+              <p>Pan-seared salmon fillets, garlic prawns, fish curries, and seafood bisques.</p>
+              <div class="cat-link"><span>Explore Seafood</span> <i class="fa-solid fa-arrow-right"></i></div>
+            </div>
+          </div>
+
+          <div class="cat-editorial-card" data-area="Mexican">
+            <div class="cat-img-box">
+              <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=800&q=80" alt="Mexican Street Food" loading="lazy">
+              <span class="cat-pill">Zesty & Fresh</span>
+            </div>
+            <div class="cat-body">
+              <h3>Mexican Cantina</h3>
+              <p>Hand-pressed street tacos, slow-braised carnitas, fresh pico de gallo, and enchiladas.</p>
+              <div class="cat-link"><span>Explore Mexican</span> <i class="fa-solid fa-arrow-right"></i></div>
+            </div>
+          </div>
+
+          <div class="cat-editorial-card" data-category-filter="Chicken">
+            <div class="cat-img-box">
+              <img src="https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=800&q=80" alt="High Protein Poultry" loading="lazy">
+              <span class="cat-pill">Macro Protein</span>
+            </div>
+            <div class="cat-body">
+              <h3>Poultry & Lean Meats</h3>
+              <p>Herb-roasted chicken, grilled cutlets, skewers, and protein-packed family dinners.</p>
+              <div class="cat-link"><span>Explore Poultry</span> <i class="fa-solid fa-arrow-right"></i></div>
+            </div>
+          </div>
+
+          <div class="cat-editorial-card" data-category-filter="Dessert">
+            <div class="cat-img-box">
+              <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=800&q=80" alt="Artisan Desserts" loading="lazy">
+              <span class="cat-pill">Patisserie</span>
+            </div>
+            <div class="cat-body">
+              <h3>Artisan Patisserie & Bakes</h3>
+              <p>Warm molten cakes, fruit tarts, vanilla bean custards, and artisan pastries.</p>
+              <div class="cat-link"><span>Explore Desserts</span> <i class="fa-solid fa-arrow-right"></i></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         VIEW 4: FAVORITES (PERSONAL COOKBOOK EXPERIENCE)
          ========================================================================== -->
     <section class="page-view" id="view-favorites" style="display:none;">
       <div class="container explore-section">
-        <div class="section-header" style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:16px;">
-          <div>
-            <span class="section-tag"><i class="fa-solid fa-heart"></i> Saved Collection</span>
-            <h1 class="section-title">My Favorites</h1>
-            <p class="section-subtitle">Your personally curated cookbook of delicious recipes.</p>
+        <!-- Favorites Editorial Header Banner -->
+        <div class="favorites-header-banner">
+          <div class="favorites-header-text">
+            <span class="section-tag"><i class="fa-solid fa-heart"></i> My Kitchen Library</span>
+            <h1 class="section-title">Personal Cookbook</h1>
+            <p class="section-subtitle">Your saved recipes, culinary favorites, and weekly recipe inspirations in one place.</p>
           </div>
-          <div class="filter-select-group">
+          <div class="favorites-search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
             <input 
               type="text" 
-              class="filter-select" 
               id="favorites-search-input" 
               placeholder="Search saved recipes..."
-              style="min-width:220px;"
+              aria-label="Search saved favorites"
             >
+          </div>
+        </div>
+
+        <!-- Favorites Summary Strip -->
+        <div class="favorites-summary-strip" id="favorites-summary-strip">
+          <div class="summary-pill">
+            <i class="fa-solid fa-bookmark" style="color:var(--primary);"></i>
+            <span id="fav-summary-count">0 Saved Recipes</span>
+          </div>
+          <div class="summary-pill">
+            <i class="fa-regular fa-clock" style="color:var(--secondary);"></i>
+            <span id="fav-summary-time">Ready to cook anytime</span>
+          </div>
+          <div class="summary-actions">
+            <button type="button" class="action-btn-ghost" id="fav-clear-all-btn" style="display:none;">
+              <i class="fa-solid fa-trash-can"></i> Clear All Saved
+            </button>
           </div>
         </div>
 
         <!-- Favorites Recipe Grid -->
         <div class="recipe-grid" id="favorites-recipe-grid">
-          <!-- Dynamically populated or empty state -->
+          <!-- Dynamically populated or empty cookbook state -->
         </div>
       </div>
     </section>
 
     <!-- ==========================================================================
-         VIEW 4: WEEKLY MEAL PLANNER
+         VIEW 5: WEEKLY MEAL PLANNER
          ========================================================================== -->
     <section class="page-view" id="view-planner" style="display:none;">
       <div class="container planner-section">
         <div class="planner-header-actions">
           <div>
-            <span class="section-tag"><i class="fa-solid fa-calendar-days"></i> Meal Planner</span>
+            <span class="section-tag"><i class="fa-solid fa-calendar-days"></i> Meal Architecture</span>
             <h1 class="section-title">Weekly Meal Planner</h1>
-            <p class="section-subtitle">Plan your week of nutritious and delightful meals effortlessly.</p>
+            <p class="section-subtitle">Map out breakfast, lunch, and dinner for the week. Automatically compile your grocery shopping checklist.</p>
           </div>
           <div class="planner-btn-group">
             <button type="button" class="action-btn-primary" id="planner-auto-generate-btn">
               <i class="fa-solid fa-wand-magic-sparkles"></i>
               <span>Generate My Week</span>
             </button>
-            <button type="button" class="action-btn" id="planner-grocery-btn" title="View Aggregated Grocery List">
+            <button type="button" class="action-btn-secondary" id="planner-grocery-btn" title="View Aggregated Grocery List">
               <i class="fa-solid fa-basket-shopping"></i>
+              <span>Grocery List</span>
             </button>
-            <button type="button" class="action-btn" id="planner-clear-btn" title="Clear Weekly Plan">
+            <button type="button" class="action-btn" id="planner-clear-btn" title="Clear Weekly Plan" aria-label="Clear weekly plan">
               <i class="fa-solid fa-trash-can"></i>
             </button>
           </div>
@@ -553,6 +808,104 @@
         <!-- 7-Day Interactive Planner Grid -->
         <div class="weekly-grid" id="weekly-planner-grid">
           <!-- Rendered Monday through Sunday slots -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         VIEW 6: KITCHEN PANTRY (DEDICATED SMART INGREDIENT EXPERIENCE)
+         ========================================================================== -->
+    <section class="page-view" id="view-pantry" style="display:none;">
+      <div class="container explore-section">
+        <div class="section-header">
+          <span class="section-tag"><i class="fa-solid fa-kitchen-set"></i> Zero Waste Cooking</span>
+          <h1 class="section-title">Smart Kitchen Pantry</h1>
+          <p class="section-subtitle">Select the ingredients in your kitchen to generate recipe matches with zero food waste.</p>
+        </div>
+
+        <div class="pantry-studio-layout">
+          <!-- Left: Pantry Categories Builder -->
+          <div class="pantry-builder-col">
+            
+            <!-- Category Group 1: Produce & Greens -->
+            <div class="pantry-cat-accordion">
+              <div class="pantry-cat-head">
+                <i class="fa-solid fa-carrot" style="color:#5E8C61;"></i>
+                <h4>Produce & Fresh Greens</h4>
+              </div>
+              <div class="pantry-cat-chips">
+                <button type="button" class="pantry-tag-btn" data-ingredient="tomato">🍅 Tomato</button>
+                <button type="button" class="pantry-tag-btn" data-ingredient="onion">🧅 Onion</button>
+                <button type="button" class="pantry-tag-btn" data-ingredient="garlic">🧄 Garlic</button>
+                <button type="button" class="pantry-tag-btn" data-ingredient="potato">🥔 Potato</button>
+                <button type="button" class="pantry-tag-btn" data-ingredient="spinach">🥬 Spinach</button>
+                <button type="button" class="pantry-tag-btn" data-ingredient="lemon">🍋 Lemon</button>
+                <button type="button" class="pantry-tag-btn" data-ingredient="mushroom">🍄 Mushroom</button>
+                <button type="button" class="pantry-tag-btn" data-ingredient="bell pepper">🫑 Bell Pepper</button>
+              </div>
+            </div>
+
+            <!-- Category Group 2: Proteins & Dairy -->
+            <div class="pantry-cat-accordion">
+              <div class="pantry-cat-head">
+                <i class="fa-solid fa-egg" style="color:#E85D3F;"></i>
+                <h4>Proteins & Dairy</h4>
+              </div>
+              <div class="pantry-cat-chips">
+                <button type="button" class="pantry-tag-btn" data-ingredient="chicken">🍗 Chicken</button>
+                <button type="button" class="pantry-tag-btn" data-ingredient="egg">🥚 Eggs</button>
+                <button type="button" class="pantry-tag-btn" data-ingredient="paneer">🧀 Paneer / Cottage Cheese</button>
+                <button type="button" class="pantry-tag-btn" data-ingredient="cheese">🧀 Cheddar / Mozzarella</button>
+                <button type="button" class="pantry-tag-btn" data-ingredient="milk">🥛 Milk / Cream</button>
+                <button type="button" class="pantry-tag-btn" data-ingredient="beef">🥩 Beef</button>
+                <button type="button" class="pantry-tag-btn" data-ingredient="salmon">🐟 Salmon / Fish</button>
+                <button type="button" class="pantry-tag-btn" data-ingredient="tofu">🧈 Tofu</button>
+              </div>
+            </div>
+
+            <!-- Category Group 3: Grains, Pasta & Staples -->
+            <div class="pantry-cat-accordion">
+              <div class="pantry-cat-head">
+                <i class="fa-solid fa-wheat-awn" style="color:#E09F3E;"></i>
+                <h4>Grains, Pasta & Staples</h4>
+              </div>
+              <div class="pantry-cat-chips">
+                <button type="button" class="pantry-tag-btn" data-ingredient="rice">🍚 Basmati Rice</button>
+                <button type="button" class="pantry-tag-btn" data-ingredient="pasta">🍝 Pasta</button>
+                <button type="button" class="pantry-tag-btn" data-ingredient="flour">🌾 Flour</button>
+                <button type="button" class="pantry-tag-btn" data-ingredient="olive oil">🫒 Olive Oil</button>
+                <button type="button" class="pantry-tag-btn" data-ingredient="butter">🧈 Butter</button>
+                <button type="button" class="pantry-tag-btn" data-ingredient="ginger">🫚 Ginger</button>
+                <button type="button" class="pantry-tag-btn" data-ingredient="soy sauce">🥢 Soy Sauce</button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right: Active Pantry Tray & Match Trigger -->
+          <div class="pantry-results-col">
+            <div class="pantry-inventory-card">
+              <div class="pantry-inventory-header">
+                <h3>My Selected Pantry</h3>
+                <span class="pantry-count-badge" id="pantry-active-count">0 items</span>
+              </div>
+              <p class="pantry-inventory-sub">Items currently checked in your kitchen inventory:</p>
+              
+              <div class="pantry-selected-chips-box" id="pantry-studio-chips">
+                <span class="pantry-studio-empty">No ingredients selected yet. Click any staple above to build your kitchen inventory.</span>
+              </div>
+
+              <div class="pantry-custom-entry-box">
+                <input type="text" id="pantry-studio-custom-input" placeholder="Add custom item (e.g. coriander, coconut milk)...">
+                <button type="button" class="pantry-studio-add-btn" id="pantry-studio-add-btn">Add</button>
+              </div>
+
+              <button type="button" class="action-btn-primary" id="pantry-studio-match-btn" style="width:100%; justify-content:center;">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <span>Find Recipes Matching My Pantry</span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -568,7 +921,7 @@
         <i class="fa-solid fa-xmark"></i>
       </button>
       
-      <!-- Recipe details content container (reuses .recipe-details-content for backwards compatibility) -->
+      <!-- Recipe details content container -->
       <div class="recipe-details-content" id="recipe-details-content">
         <!-- Dynamically rendered detailed recipe template -->
       </div>
@@ -642,8 +995,8 @@
         <i class="fa-solid fa-arrow-left"></i>
         <span>Previous Step</span>
       </button>
-      <div style="color:rgba(255,255,255,0.6); font-size:0.9rem;">
-        Use <kbd style="background:rgba(255,255,255,0.15); padding:2px 6px; border-radius:4px;">←</kbd> and <kbd style="background:rgba(255,255,255,0.15); padding:2px 6px; border-radius:4px;">→</kbd> keys to navigate
+      <div class="cook-keyboard-hint">
+        Use <kbd>←</kbd> and <kbd>→</kbd> keys to navigate steps • <kbd>Esc</kbd> to exit
       </div>
       <button type="button" class="cook-nav-btn cook-next-btn" id="cook-next-step-btn">
         <span>Next Step</span>
@@ -657,24 +1010,24 @@
        ========================================================================== -->
   <div class="recipe-modal-backdrop" id="grocery-modal" role="dialog" aria-modal="true">
     <div class="grocery-modal-container">
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
-        <h3 style="font-family:var(--font-serif); font-size:1.6rem; color:var(--text-dark);">
-          <i class="fa-solid fa-basket-shopping" style="color:var(--primary); margin-right:8px;"></i>
-          Weekly Grocery List
+      <div class="modal-top-bar">
+        <h3 class="modal-heading">
+          <i class="fa-solid fa-basket-shopping" style="color:var(--primary);"></i>
+          <span>Weekly Grocery List</span>
         </h3>
-        <button type="button" class="modal-close-btn" id="grocery-modal-close" style="position:static; margin:0;">
+        <button type="button" class="modal-close-btn" id="grocery-modal-close">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
-      <p style="color:var(--text-secondary); margin-bottom:20px; font-size:0.92rem;">
+      <p class="modal-subheading">
         Aggregated ingredients across all scheduled meals in your Weekly Meal Planner.
       </p>
       
-      <div id="grocery-items-container" style="max-height:400px; overflow-y:auto; margin-bottom:24px;">
+      <div id="grocery-items-container" class="grocery-list-scroll">
         <!-- Dynamically rendered categorized grocery items -->
       </div>
 
-      <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border); padding-top:16px;">
+      <div class="grocery-modal-footer">
         <button type="button" class="action-btn-primary" id="grocery-copy-btn">
           <i class="fa-regular fa-copy"></i>
           <span>Copy to Clipboard</span>
@@ -687,27 +1040,42 @@
   </div>
 
   <!-- ==========================================================================
-       MODAL 4: ADD TO MEAL PLAN DIALOG
+       MODAL 4: ADD TO MEAL PLAN DIALOG (WITH CUSTOM DROPDOWNS)
        ========================================================================== -->
   <div class="recipe-modal-backdrop" id="add-to-plan-modal" role="dialog" aria-modal="true">
     <div class="grocery-modal-container" style="max-width:480px;">
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
-        <h3 style="font-family:var(--font-serif); font-size:1.35rem; color:var(--text-dark);">
-          Add to Meal Planner
+      <div class="modal-top-bar">
+        <h3 class="modal-heading">
+          <i class="fa-solid fa-calendar-plus" style="color:var(--primary);"></i>
+          <span>Add to Meal Planner</span>
         </h3>
-        <button type="button" class="modal-close-btn" id="add-to-plan-close" style="position:static; margin:0;">
+        <button type="button" class="modal-close-btn" id="add-to-plan-close">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
       
-      <p id="add-to-plan-recipe-name" style="font-weight:700; color:var(--primary); margin-bottom:18px;">
+      <p id="add-to-plan-recipe-name" class="add-to-plan-title">
         Recipe Name
       </p>
 
-      <div style="display:flex; flex-direction:column; gap:14px; margin-bottom:24px;">
-        <div>
-          <label style="display:block; font-size:0.85rem; font-weight:700; color:var(--text-secondary); margin-bottom:6px;">Select Day:</label>
-          <select class="filter-select" id="plan-select-day" style="width:100%;">
+      <div class="add-to-plan-form">
+        <!-- Custom Day Dropdown -->
+        <div class="custom-dropdown" id="dropdown-plan-day" style="width:100%;">
+          <span class="dropdown-label">Select Day</span>
+          <button type="button" class="dropdown-trigger" aria-haspopup="listbox" aria-expanded="false">
+            <span class="trigger-text">Monday</span>
+            <i class="fa-solid fa-chevron-down trigger-icon"></i>
+          </button>
+          <div class="dropdown-menu" role="listbox">
+            <div class="dropdown-item selected" data-value="monday">Monday</div>
+            <div class="dropdown-item" data-value="tuesday">Tuesday</div>
+            <div class="dropdown-item" data-value="wednesday">Wednesday</div>
+            <div class="dropdown-item" data-value="thursday">Thursday</div>
+            <div class="dropdown-item" data-value="friday">Friday</div>
+            <div class="dropdown-item" data-value="saturday">Saturday</div>
+            <div class="dropdown-item" data-value="sunday">Sunday</div>
+          </div>
+          <select class="filter-select sr-only" id="plan-select-day">
             <option value="monday">Monday</option>
             <option value="tuesday">Tuesday</option>
             <option value="wednesday">Wednesday</option>
@@ -718,18 +1086,28 @@
           </select>
         </div>
 
-        <div>
-          <label style="display:block; font-size:0.85rem; font-weight:700; color:var(--text-secondary); margin-bottom:6px;">Select Meal:</label>
-          <select class="filter-select" id="plan-select-meal" style="width:100%;">
+        <!-- Custom Meal Dropdown -->
+        <div class="custom-dropdown" id="dropdown-plan-meal" style="width:100%;">
+          <span class="dropdown-label">Select Meal Slot</span>
+          <button type="button" class="dropdown-trigger" aria-haspopup="listbox" aria-expanded="false">
+            <span class="trigger-text">Dinner</span>
+            <i class="fa-solid fa-chevron-down trigger-icon"></i>
+          </button>
+          <div class="dropdown-menu" role="listbox">
+            <div class="dropdown-item" data-value="breakfast"><i class="fa-solid fa-mug-saucer"></i> Breakfast</div>
+            <div class="dropdown-item" data-value="lunch"><i class="fa-solid fa-sun"></i> Lunch</div>
+            <div class="dropdown-item selected" data-value="dinner"><i class="fa-solid fa-utensils"></i> Dinner</div>
+          </div>
+          <select class="filter-select sr-only" id="plan-select-meal">
             <option value="breakfast">Breakfast</option>
             <option value="lunch">Lunch</option>
-            <option value="dinner">Dinner</option>
+            <option value="dinner" selected>Dinner</option>
           </select>
         </div>
       </div>
 
-      <button type="button" class="action-btn-primary" id="confirm-add-to-plan-btn" style="width:100%; justify-content:center;">
-        <i class="fa-solid fa-calendar-plus"></i>
+      <button type="button" class="action-btn-primary" id="confirm-add-to-plan-btn" style="width:100%; justify-content:center; margin-top:20px;">
+        <i class="fa-solid fa-calendar-check"></i>
         <span>Confirm & Add to Schedule</span>
       </button>
     </div>
@@ -748,6 +1126,10 @@
         <i class="fa-solid fa-compass"></i>
         <span>Explore</span>
       </a>
+      <a href="#categories" class="mobile-nav-item" data-view="categories">
+        <i class="fa-solid fa-layer-group"></i>
+        <span>Categories</span>
+      </a>
       <a href="#favorites" class="mobile-nav-item" data-view="favorites">
         <i class="fa-solid fa-heart"></i>
         <span>Favorites</span>
@@ -765,55 +1147,101 @@
        ========================================================================== -->
   <div class="toast-container" id="toast-container" aria-live="polite"></div>
 
-  <!-- ==========================================================================
-       SITE FOOTER
-       ========================================================================== -->
   <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <h4>Recipe Explorer</h4>
-          <p>"Discover. Cook. Enjoy."</p>
-          <p style="margin-top:12px; font-size:0.85rem; color:#857A72;">
-            A modern culinary discovery platform designed for food enthusiasts, home chefs, and meal prep masters.
+    <!-- Wavy SVG Top Edge -->
+    <div class="footer-wave">
+      <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,60 C240,100 480,0 720,50 C960,100 1200,20 1440,60 L1440,100 L0,100 Z" fill="#191412"/>
+      </svg>
+    </div>
+
+    <!-- Floating Food Emojis Background -->
+    <div class="footer-floating-emojis" aria-hidden="true">
+      <span class="footer-emoji fe-1">🍕</span>
+      <span class="footer-emoji fe-2">🥘</span>
+      <span class="footer-emoji fe-3">🍜</span>
+      <span class="footer-emoji fe-4">🧁</span>
+      <span class="footer-emoji fe-5">🥑</span>
+      <span class="footer-emoji fe-6">🍳</span>
+      <span class="footer-emoji fe-7">🌶️</span>
+      <span class="footer-emoji fe-8">🫐</span>
+    </div>
+
+    <div class="container footer-inner">
+
+      <!-- Creative Newsletter CTA Section -->
+      <div class="footer-cta-section">
+        <div class="footer-cta-content">
+          <h2 class="footer-cta-heading">What will you cook <em>tonight?</em></h2>
+          <p class="footer-cta-desc">
+            Whether you have 15 minutes for a quick skillet or all afternoon for artisan pasta — your next masterpiece starts right here.
           </p>
         </div>
+        <form class="footer-cta-form" id="footer-search-form">
+          <div class="footer-cta-input-wrap">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="footer-search-input" placeholder="Search a craving (e.g. Risotto, Tikka)..." aria-label="Footer search">
+          </div>
+          <button type="submit" class="action-btn-primary">
+            <span>Find Recipe</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </form>
+      </div>
+
+      <!-- Main Footer Grid -->
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo footer-logo">
+            <div class="brand-icon"><i class="fa-solid fa-utensils"></i></div>
+            <div class="brand-text">Recipe<span>Explorer</span></div>
+          </div>
+          <p class="footer-motto">"Discover. Cook. Savor."</p>
+          <p class="footer-bio">
+            A culinary companion crafted for home chefs, food lovers, and weeknight masters seeking inspiration without the noise.
+          </p>
+        </div>
+
         <div class="footer-col">
-          <h5>Navigation</h5>
+          <h5>Navigate</h5>
           <div class="footer-links">
             <a href="#home" class="footer-link">Home</a>
             <a href="#explore" class="footer-link">Explore Recipes</a>
-            <a href="#inspiration" class="footer-link">Categories</a>
+            <a href="#categories" class="footer-link">Categories</a>
             <a href="#favorites" class="footer-link">Favorites</a>
             <a href="#planner" class="footer-link">Meal Planner</a>
+            <a href="#pantry" class="footer-link">Pantry Matcher</a>
           </div>
         </div>
+
         <div class="footer-col">
-          <h5>Popular Cuisines</h5>
+          <h5>World Cuisines</h5>
           <div class="footer-links">
-            <a href="#explore" class="footer-link footer-filter-link" data-cuisine="Indian">Indian Curries</a>
-            <a href="#explore" class="footer-link footer-filter-link" data-cuisine="Italian">Italian Pastas</a>
-            <a href="#explore" class="footer-link footer-filter-link" data-cuisine="Mexican">Mexican Tacos</a>
-            <a href="#explore" class="footer-link footer-filter-link" data-cuisine="Japanese">Japanese Dishes</a>
-            <a href="#explore" class="footer-link footer-filter-link" data-cuisine="Thai">Thai Curries</a>
+            <a href="#explore" class="footer-link footer-filter-link" data-cuisine="Indian">🇮🇳 Indian</a>
+            <a href="#explore" class="footer-link footer-filter-link" data-cuisine="Italian">🇮🇹 Italian</a>
+            <a href="#explore" class="footer-link footer-filter-link" data-cuisine="Mexican">🇲🇽 Mexican</a>
+            <a href="#explore" class="footer-link footer-filter-link" data-cuisine="Japanese">🇯🇵 Japanese</a>
+            <a href="#explore" class="footer-link footer-filter-link" data-cuisine="French">🇫🇷 French</a>
+            <a href="#explore" class="footer-link footer-filter-link" data-cuisine="Thai">🇹🇭 Thai</a>
           </div>
         </div>
+
         <div class="footer-col">
           <h5>Features</h5>
           <div class="footer-links">
-            <span class="footer-link">Distraction-Free Cook Mode</span>
-            <span class="footer-link">Dynamic Serving Scaler</span>
-            <span class="footer-link">Smart Kitchen Pantry Matcher</span>
-            <span class="footer-link">Automated Weekly Meal Plans</span>
-            <span class="footer-link">Aggregated Grocery Checklist</span>
+            <span class="footer-highlight-item"><i class="fa-solid fa-fire" style="color:var(--secondary);"></i> Cook Mode</span>
+            <span class="footer-highlight-item"><i class="fa-solid fa-scale-balanced" style="color:var(--secondary);"></i> Serving Scaler</span>
+            <span class="footer-highlight-item"><i class="fa-solid fa-recycle" style="color:var(--secondary);"></i> Pantry Matcher</span>
+            <span class="footer-highlight-item"><i class="fa-solid fa-calendar-week" style="color:var(--secondary);"></i> 7-Day Plans</span>
+            <span class="footer-highlight-item"><i class="fa-solid fa-cart-shopping" style="color:var(--secondary);"></i> Grocery List</span>
           </div>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <div>&copy; 2026 Recipe Explorer. All rights reserved.</div>
-        <div style="display:flex; gap:16px;">
-          <span>Crafted with passion for culinary excellence</span>
+        <div>&copy; 2026 Recipe Explorer Studio. All rights reserved.</div>
+        <div class="footer-credits">
+          <span>Crafted with <i class="fa-solid fa-heart" style="color:var(--primary); font-size:0.75rem;"></i> for culinary craft</span>
         </div>
       </div>
     </div>
