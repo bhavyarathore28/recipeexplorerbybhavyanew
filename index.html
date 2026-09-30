@@ -8,9 +8,9 @@
     content="Recipe Explorer — Search tested recipes, plan your weekly meals, match ingredients in your pantry, and follow step-by-step cooking instructions.">
   <meta name="theme-color" content="#F9F8F6">
 
-  <title>Recipe Explorer — Everyday Recipes & Meal Planning</title>
+  <title>Recipe Explorer</title>
 
-  <!-- Typography: Newsreader (Editorial Serif) & Plus Jakarta Sans (Clean UI) -->
+  <!-- Typography: News reader (Editorial Serif) & Plus Jakarta Sans (Clean UI) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -30,12 +30,13 @@
     <div class="container navbar">
       <!-- Brand Logo -->
       <a href="#home" class="brand-logo" id="brand-logo" aria-label="Recipe Explorer Home">
-        <svg class="brand-icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
-          <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
-          <line x1="6" y1="1" x2="6" y2="4"/>
-          <line x1="10" y1="1" x2="10" y2="4"/>
-          <line x1="14" y1="1" x2="14" y2="4"/>
+        <svg class="brand-icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+          <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+          <line x1="6" y1="1" x2="6" y2="4" />
+          <line x1="10" y1="1" x2="10" y2="4" />
+          <line x1="14" y1="1" x2="14" y2="4" />
         </svg>
         <span class="brand-text">Recipe<strong>Explorer</strong></span>
       </a>
@@ -55,19 +56,22 @@
 
       <!-- Right Header Actions -->
       <div class="header-actions">
-        <button type="button" class="action-btn" id="header-random-btn" title="Surprise recipe" aria-label="Surprise recipe">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="2" y="2" width="20" height="20" rx="4"/>
-            <circle cx="8" cy="8" r="1.5" fill="currentColor"/>
-            <circle cx="16" cy="16" r="1.5" fill="currentColor"/>
-            <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+        <button type="button" class="action-btn" id="header-random-btn" title="Surprise recipe"
+          aria-label="Surprise recipe">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="4" />
+            <circle cx="8" cy="8" r="1.5" fill="currentColor" />
+            <circle cx="16" cy="16" r="1.5" fill="currentColor" />
+            <circle cx="12" cy="12" r="1.5" fill="currentColor" />
           </svg>
         </button>
         <button type="button" class="action-btn" id="header-grocery-btn" title="Grocery list" aria-label="Grocery list">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
-            <line x1="3" y1="6" x2="21" y2="6"/>
-            <path d="M16 10a4 4 0 0 1-8 0"/>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <path d="M16 10a4 4 0 0 1-8 0" />
           </svg>
           <span class="btn-badge" id="grocery-badge" style="display:none;">0</span>
         </button>
@@ -96,23 +100,27 @@
             <span class="section-tag">Home Cooking & Meal Planning</span>
             <h1 class="hero-title">Find something good to cook tonight.</h1>
             <p class="hero-desc">
-              Search straightforward recipes by ingredient or cuisine, schedule meals for the week, and see what you can make from whatever is in your fridge.
+              Search straightforward recipes by ingredient or cuisine, schedule meals for the week, and see what you can
+              make from whatever is in your fridge.
             </p>
 
             <!-- Search Bar with Suggestions Dropdown -->
             <div class="hero-search-wrapper">
               <form class="hero-search-bar" id="hero-search-form" role="search">
-                <svg class="search-icon-decor" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <circle cx="11" cy="11" r="8"/>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                <svg class="search-icon-decor" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  aria-hidden="true">
+                  <circle cx="11" cy="11" r="8" />
+                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
                 </svg>
                 <input type="text" class="hero-search-input searchBox" id="hero-search-input"
                   placeholder="Search chicken, pasta, curry, salmon, or lentils..." autocomplete="off"
                   aria-label="Search recipes">
                 <button type="button" class="search-clear-btn" id="hero-search-clear" aria-label="Clear search input">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <line x1="18" y1="6" x2="6" y2="18"/>
-                    <line x1="6" y1="6" x2="18" y2="18"/>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
                   </svg>
                 </button>
                 <button type="submit" class="hero-search-btn searchBtn" id="hero-search-submit">
@@ -165,7 +173,8 @@
 
           <!-- Right Column: Asymmetric Featured Recipe Card -->
           <div class="hero-feature-column" id="hero-featured-container">
-            <div class="hero-spotlight-card" id="featured-recipe-card" role="button" tabindex="0" aria-label="View featured dish: Chicken Handi">
+            <div class="hero-spotlight-card" id="featured-recipe-card" role="button" tabindex="0"
+              aria-label="View featured dish: Chicken Handi">
               <div class="spotlight-image-wrap">
                 <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=900&q=80"
                   alt="Slow-cooked Chicken Handi in copper bowl with cilantro" class="spotlight-img" loading="eager">
@@ -181,15 +190,18 @@
                 </div>
                 <h2 class="spotlight-title">Chicken Handi</h2>
                 <p class="spotlight-desc">
-                  Tender chicken pieces simmered in a yogurt and tomato gravy spiced with ginger, garlic, and freshly cracked coriander.
+                  Tender chicken pieces simmered in a yogurt and tomato gravy spiced with ginger, garlic, and freshly
+                  cracked coriander.
                 </p>
                 <div class="spotlight-footer">
-                  <span class="spotlight-tip"><strong>Tip:</strong> Sauté ginger and garlic on medium-low to release aromatics without burning.</span>
+                  <span class="spotlight-tip"><strong>Tip:</strong> Sauté ginger and garlic on medium-low to release
+                    aromatics without burning.</span>
                   <span class="spotlight-link">
                     <span>View Recipe</span>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <line x1="5" y1="12" x2="19" y2="12"/>
-                      <polyline points="12 5 19 12 12 19"/>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                      <polyline points="12 5 19 12 12 19" />
                     </svg>
                   </span>
                 </div>
@@ -214,14 +226,16 @@
               <div class="workflow-num">2</div>
               <div class="workflow-text">
                 <h3>Plan meals & get an ingredient list</h3>
-                <p>Slot dishes into your Monday through Sunday planner and generate a combined shopping checklist with one click.</p>
+                <p>Slot dishes into your Monday through Sunday planner and generate a combined shopping checklist with
+                  one click.</p>
               </div>
             </div>
             <div class="workflow-step">
               <div class="workflow-num">3</div>
               <div class="workflow-text">
                 <h3>Cook with timers & scaled portions</h3>
-                <p>Scale ingredient quantities for any group size and track your cooking progress with integrated kitchen timers.</p>
+                <p>Scale ingredient quantities for any group size and track your cooking progress with integrated
+                  kitchen timers.</p>
               </div>
             </div>
           </div>
@@ -239,9 +253,10 @@
             </div>
             <a href="#categories" class="action-btn-ghost">
               <span>All Categories</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <line x1="5" y1="12" x2="19" y2="12"/>
-                <polyline points="12 5 19 12 12 19"/>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
               </svg>
             </a>
           </div>
@@ -366,7 +381,8 @@
               <div class="pantry-selected-tray">
                 <div class="pantry-tray-header">
                   <span>Selected items:</span>
-                  <button type="button" class="pantry-clear-all-btn" id="pantry-clear-all-btn" style="display:none;">Clear all</button>
+                  <button type="button" class="pantry-clear-all-btn" id="pantry-clear-all-btn"
+                    style="display:none;">Clear all</button>
                 </div>
                 <div class="pantry-selected-chips" id="pantry-chips-container">
                   <span class="pantry-empty-prompt" id="pantry-placeholder-text">
@@ -377,9 +393,10 @@
 
               <button type="button" class="pantry-submit-btn" id="pantry-search-submit">
                 <span>Find Matching Recipes</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <line x1="5" y1="12" x2="19" y2="12"/>
-                  <polyline points="12 5 19 12 12 19"/>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
                 </svg>
               </button>
             </div>
@@ -398,9 +415,10 @@
             </div>
             <a href="#explore" class="action-btn-primary">
               <span>View All Recipes</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <line x1="5" y1="12" x2="19" y2="12"/>
-                <polyline points="12 5 19 12 12 19"/>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
               </svg>
             </a>
           </div>
@@ -426,22 +444,25 @@
             <p class="section-subtitle">Filter by cuisine, category, cook time, or difficulty.</p>
           </div>
           <div class="explore-view-toggles" aria-label="Layout view mode">
-            <button type="button" class="view-toggle-btn active" id="view-grid-btn" title="Grid View" aria-label="Grid view">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="3" y="3" width="7" height="7"/>
-                <rect x="14" y="3" width="7" height="7"/>
-                <rect x="14" y="14" width="7" height="7"/>
-                <rect x="3" y="14" width="7" height="7"/>
+            <button type="button" class="view-toggle-btn active" id="view-grid-btn" title="Grid View"
+              aria-label="Grid view">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="3" width="7" height="7" />
+                <rect x="14" y="3" width="7" height="7" />
+                <rect x="14" y="14" width="7" height="7" />
+                <rect x="3" y="14" width="7" height="7" />
               </svg>
             </button>
             <button type="button" class="view-toggle-btn" id="view-list-btn" title="List View" aria-label="List view">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <line x1="8" y1="6" x2="21" y2="6"/>
-                <line x1="8" y1="12" x2="21" y2="12"/>
-                <line x1="8" y1="18" x2="21" y2="18"/>
-                <line x1="3" y1="6" x2="3.01" y2="6"/>
-                <line x1="3" y1="12" x2="3.01" y2="12"/>
-                <line x1="3" y1="18" x2="3.01" y2="18"/>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="8" y1="6" x2="21" y2="6" />
+                <line x1="8" y1="12" x2="21" y2="12" />
+                <line x1="8" y1="18" x2="21" y2="18" />
+                <line x1="3" y1="6" x2="3.01" y2="6" />
+                <line x1="3" y1="12" x2="3.01" y2="12" />
+                <line x1="3" y1="18" x2="3.01" y2="18" />
               </svg>
             </button>
           </div>
@@ -451,17 +472,20 @@
         <div class="explore-filter-bar">
           <div class="filter-row-top">
             <div class="explore-search-input-wrap">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="11" cy="11" r="8"/>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
               </svg>
               <input type="text" id="explore-search-input"
                 placeholder="Search by recipe name, ingredient, or keyword..." autocomplete="off"
                 aria-label="Search recipes in explore">
-              <button type="button" class="search-clear-btn" id="explore-search-clear" aria-label="Clear explore search">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <line x1="18" y1="6" x2="6" y2="18"/>
-                  <line x1="6" y1="6" x2="18" y2="18"/>
+              <button type="button" class="search-clear-btn" id="explore-search-clear"
+                aria-label="Clear explore search">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
                 </svg>
               </button>
             </div>
@@ -475,8 +499,9 @@
               <span class="dropdown-label">Cuisine</span>
               <button type="button" class="dropdown-trigger" aria-haspopup="listbox" aria-expanded="false">
                 <span class="trigger-text">All Cuisines</span>
-                <svg class="trigger-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="6 9 12 15 18 9"/>
+                <svg class="trigger-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9" />
                 </svg>
               </button>
               <div class="dropdown-menu" role="listbox">
@@ -516,8 +541,9 @@
               <span class="dropdown-label">Category</span>
               <button type="button" class="dropdown-trigger" aria-haspopup="listbox" aria-expanded="false">
                 <span class="trigger-text">All Categories</span>
-                <svg class="trigger-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="6 9 12 15 18 9"/>
+                <svg class="trigger-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9" />
                 </svg>
               </button>
               <div class="dropdown-menu" role="listbox">
@@ -553,8 +579,9 @@
               <span class="dropdown-label">Time</span>
               <button type="button" class="dropdown-trigger" aria-haspopup="listbox" aria-expanded="false">
                 <span class="trigger-text">Any Time</span>
-                <svg class="trigger-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="6 9 12 15 18 9"/>
+                <svg class="trigger-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9" />
                 </svg>
               </button>
               <div class="dropdown-menu" role="listbox">
@@ -576,8 +603,9 @@
               <span class="dropdown-label">Difficulty</span>
               <button type="button" class="dropdown-trigger" aria-haspopup="listbox" aria-expanded="false">
                 <span class="trigger-text">All Levels</span>
-                <svg class="trigger-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="6 9 12 15 18 9"/>
+                <svg class="trigger-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9" />
                 </svg>
               </button>
               <div class="dropdown-menu" role="listbox">
@@ -599,8 +627,9 @@
               <span class="dropdown-label">Sort</span>
               <button type="button" class="dropdown-trigger" aria-haspopup="listbox" aria-expanded="false">
                 <span class="trigger-text">Featured</span>
-                <svg class="trigger-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="6 9 12 15 18 9"/>
+                <svg class="trigger-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9" />
                 </svg>
               </button>
               <div class="dropdown-menu" role="listbox">
@@ -640,9 +669,10 @@
             Showing <strong>0</strong> recipes
           </div>
           <button type="button" class="clear-all-filters-btn" id="explore-clear-filters-btn" style="display:none;">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <polyline points="1 4 1 10 7 10"/>
-              <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="1 4 1 10 7 10" />
+              <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10" />
             </svg>
             <span>Reset filters</span>
           </button>
@@ -672,13 +702,15 @@
             <span class="cat-story-tag">Regional Focus</span>
             <h2 class="cat-story-title">Italian & Mediterranean</h2>
             <p class="cat-story-desc">
-              Simple sauces, fresh egg pasta doughs, vegetable bakes, and risottos built around olive oil, garlic, and fresh seasonal ingredients.
+              Simple sauces, fresh egg pasta doughs, vegetable bakes, and risottos built around olive oil, garlic, and
+              fresh seasonal ingredients.
             </p>
             <button type="button" class="action-btn-primary" id="cat-story-btn" data-area="Italian">
               <span>View Italian Recipes</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <line x1="5" y1="12" x2="19" y2="12"/>
-                <polyline points="12 5 19 12 12 19"/>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
               </svg>
             </button>
           </div>
@@ -700,7 +732,10 @@
             <div class="cat-body">
               <h3>Indian Subcontinent</h3>
               <p>Biryanis, lentil dals, spiced gravies, and tandoori flatbreads.</p>
-              <div class="cat-link"><span>Explore Indian</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
+              <div class="cat-link"><span>Explore Indian</span> <svg width="12" height="12" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="9 18 15 12 9 6" />
+                </svg></div>
             </div>
           </div>
 
@@ -713,7 +748,10 @@
             <div class="cat-body">
               <h3>Vegetarian</h3>
               <p>Roasted vegetable trays, grain bowls, vegetable soups, and legumes.</p>
-              <div class="cat-link"><span>Explore Vegetarian</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
+              <div class="cat-link"><span>Explore Vegetarian</span> <svg width="12" height="12" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="9 18 15 12 9 6" />
+                </svg></div>
             </div>
           </div>
 
@@ -726,7 +764,10 @@
             <div class="cat-body">
               <h3>Seafood</h3>
               <p>Pan-seared salmon fillets, garlic prawns, fish curries, and soups.</p>
-              <div class="cat-link"><span>Explore Seafood</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
+              <div class="cat-link"><span>Explore Seafood</span> <svg width="12" height="12" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="9 18 15 12 9 6" />
+                </svg></div>
             </div>
           </div>
 
@@ -739,7 +780,10 @@
             <div class="cat-body">
               <h3>Mexican</h3>
               <p>Tacos, slow-cooked meats, fresh salsa, black beans, and enchiladas.</p>
-              <div class="cat-link"><span>Explore Mexican</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
+              <div class="cat-link"><span>Explore Mexican</span> <svg width="12" height="12" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="9 18 15 12 9 6" />
+                </svg></div>
             </div>
           </div>
 
@@ -752,7 +796,10 @@
             <div class="cat-body">
               <h3>Chicken & Poultry</h3>
               <p>Herb-roasted chicken, grilled cutlets, skewers, and skillet meals.</p>
-              <div class="cat-link"><span>Explore Poultry</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
+              <div class="cat-link"><span>Explore Poultry</span> <svg width="12" height="12" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="9 18 15 12 9 6" />
+                </svg></div>
             </div>
           </div>
 
@@ -765,7 +812,10 @@
             <div class="cat-body">
               <h3>Desserts & Baking</h3>
               <p>Chocolate bakes, fruit crisps, custards, and simple cookies.</p>
-              <div class="cat-link"><span>Explore Desserts</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
+              <div class="cat-link"><span>Explore Desserts</span> <svg width="12" height="12" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="9 18 15 12 9 6" />
+                </svg></div>
             </div>
           </div>
 
@@ -785,9 +835,10 @@
             <p class="section-subtitle">Your bookmarked dishes for quick weeknight reference.</p>
           </div>
           <div class="favorites-search-box">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="11" cy="11" r="8"/>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
             </svg>
             <input type="text" id="favorites-search-input" placeholder="Filter saved recipes..."
               aria-label="Search saved favorites">
@@ -797,11 +848,16 @@
         <!-- Favorites Summary Strip -->
         <div class="favorites-summary-strip" id="favorites-summary-strip">
           <div class="summary-pill">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+            </svg>
             <span id="fav-summary-count">0 Saved Recipes</span>
           </div>
           <div class="summary-pill">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
             <span id="fav-summary-time">Ready to cook anytime</span>
           </div>
           <div class="summary-actions">
@@ -827,18 +883,27 @@
           <div>
             <span class="section-tag">Weekly Schedule</span>
             <h1 class="section-title">Meal planner</h1>
-            <p class="section-subtitle">Map out breakfast, lunch, and dinner, then generate an aggregated grocery checklist.</p>
+            <p class="section-subtitle">Map out breakfast, lunch, and dinner, then generate an aggregated grocery
+              checklist.</p>
           </div>
           <div class="planner-btn-group">
             <button type="button" class="action-btn-primary" id="planner-auto-generate-btn">
               <span>Auto-Fill Week</span>
             </button>
             <button type="button" class="action-btn-secondary" id="planner-grocery-btn" title="View Grocery List">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <path d="M16 10a4 4 0 0 1-8 0" />
+              </svg>
               <span>Grocery List</span>
             </button>
-            <button type="button" class="action-btn" id="planner-clear-btn" title="Clear plan" aria-label="Clear weekly plan">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+            <button type="button" class="action-btn" id="planner-clear-btn" title="Clear plan"
+              aria-label="Clear weekly plan">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="3 6 5 6 21 6" />
+                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+              </svg>
             </button>
           </div>
         </div>
@@ -939,7 +1004,10 @@
               <button type="button" class="action-btn-primary" id="pantry-studio-match-btn"
                 style="width:100%; justify-content:center;">
                 <span>Find Matching Recipes</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
               </button>
             </div>
           </div>
@@ -957,7 +1025,10 @@
     <div class="recipe-modal-container">
       <button type="button" class="modal-close-btn recipe-close-btn" id="modal-close-btn"
         aria-label="Close recipe details">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
       </button>
 
       <!-- Recipe details content container -->
@@ -978,15 +1049,24 @@
       </div>
       <div class="cook-mode-header-actions">
         <button type="button" class="cook-action-btn" id="cook-tts-btn" title="Read step instruction aloud">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" />
+          </svg>
           <span>Read aloud</span>
         </button>
         <button type="button" class="cook-action-btn" id="cook-ingredients-toggle-btn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 11 12 14 22 4" />
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+          </svg>
           <span>Ingredients</span>
         </button>
         <button type="button" class="cook-action-btn cook-exit-btn" id="cook-mode-exit-btn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
           <span>Exit cook mode</span>
         </button>
       </div>
@@ -1001,8 +1081,12 @@
     <div class="cook-ingredients-drawer" id="cook-ingredients-drawer">
       <h4>
         <span>Ingredients Checklist</span>
-        <button type="button" id="cook-drawer-close-btn" style="color:var(--text-dark); font-size:1rem; cursor:pointer;" aria-label="Close ingredients reference">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <button type="button" id="cook-drawer-close-btn" style="color:var(--text-dark); font-size:1rem; cursor:pointer;"
+          aria-label="Close ingredients reference">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
         </button>
       </h4>
       <div id="cook-drawer-ingredients-list" class="ingredient-checklist"></div>
@@ -1025,7 +1109,10 @@
             <button type="button" class="timer-btn secondary" id="timer-preset-5m">+5m</button>
             <button type="button" class="timer-btn secondary" id="timer-preset-10m">+10m</button>
             <button type="button" class="timer-btn secondary" id="timer-reset-btn" aria-label="Reset timer">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="1 4 1 10 7 10" />
+                <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10" />
+              </svg>
             </button>
           </div>
         </div>
@@ -1035,7 +1122,10 @@
     <!-- Cook Mode Bottom Navigation -->
     <div class="cook-mode-footer">
       <button type="button" class="cook-nav-btn cook-prev-btn" id="cook-prev-step-btn">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="19" y1="12" x2="5" y2="12" />
+          <polyline points="12 19 5 12 12 5" />
+        </svg>
         <span>Previous Step</span>
       </button>
       <div class="cook-keyboard-hint">
@@ -1043,7 +1133,10 @@
       </div>
       <button type="button" class="cook-nav-btn cook-next-btn" id="cook-next-step-btn">
         <span>Next Step</span>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="5" y1="12" x2="19" y2="12" />
+          <polyline points="12 5 19 12 12 19" />
+        </svg>
       </button>
     </div>
   </div>
@@ -1055,11 +1148,18 @@
     <div class="grocery-modal-container">
       <div class="modal-top-bar">
         <h3 class="modal-heading">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <path d="M16 10a4 4 0 0 1-8 0" />
+          </svg>
           <span>Weekly Grocery List</span>
         </h3>
         <button type="button" class="modal-close-btn" id="grocery-modal-close" aria-label="Close grocery list">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
         </button>
       </div>
       <p class="modal-subheading">
@@ -1072,11 +1172,19 @@
 
       <div class="grocery-modal-footer">
         <button type="button" class="action-btn-primary" id="grocery-copy-btn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+          </svg>
           <span>Copy to Clipboard</span>
         </button>
-        <button type="button" class="action-btn" id="grocery-print-btn" title="Print Grocery List" aria-label="Print grocery list">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        <button type="button" class="action-btn" id="grocery-print-btn" title="Print Grocery List"
+          aria-label="Print grocery list">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 6 2 18 2 18 9" />
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+            <rect x="6" y="14" width="12" height="8" />
+          </svg>
         </button>
       </div>
     </div>
@@ -1089,11 +1197,19 @@
     <div class="grocery-modal-container" style="max-width:480px;">
       <div class="modal-top-bar">
         <h3 class="modal-heading">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+            <line x1="16" y1="2" x2="16" y2="6" />
+            <line x1="8" y1="2" x2="8" y2="6" />
+            <line x1="3" y1="10" x2="21" y2="10" />
+          </svg>
           <span>Add to Meal Planner</span>
         </h3>
         <button type="button" class="modal-close-btn" id="add-to-plan-close" aria-label="Close dialog">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
         </button>
       </div>
 
@@ -1107,7 +1223,10 @@
           <span class="dropdown-label">Select Day</span>
           <button type="button" class="dropdown-trigger" aria-haspopup="listbox" aria-expanded="false">
             <span class="trigger-text">Monday</span>
-            <svg class="trigger-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            <svg class="trigger-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
           </button>
           <div class="dropdown-menu" role="listbox">
             <div class="dropdown-item selected" data-value="monday">Monday</div>
@@ -1134,7 +1253,10 @@
           <span class="dropdown-label">Select Meal Slot</span>
           <button type="button" class="dropdown-trigger" aria-haspopup="listbox" aria-expanded="false">
             <span class="trigger-text">Dinner</span>
-            <svg class="trigger-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            <svg class="trigger-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
           </button>
           <div class="dropdown-menu" role="listbox">
             <div class="dropdown-item" data-value="breakfast">Breakfast</div>
@@ -1162,24 +1284,42 @@
   <nav class="mobile-bottom-nav" aria-label="Mobile Navigation">
     <div class="mobile-nav-items">
       <a href="#home" class="mobile-nav-item active" data-view="home">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+        </svg>
         <span>Home</span>
       </a>
       <a href="#explore" class="mobile-nav-item" data-view="explore">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
         <span>Recipes</span>
       </a>
       <a href="#categories" class="mobile-nav-item" data-view="categories">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="7" height="7" />
+          <rect x="14" y="3" width="7" height="7" />
+          <rect x="14" y="14" width="7" height="7" />
+          <rect x="3" y="14" width="7" height="7" />
+        </svg>
         <span>Categories</span>
       </a>
       <a href="#favorites" class="mobile-nav-item" data-view="favorites">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path
+            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+        </svg>
         <span>Saved</span>
         <span class="badge-dot" id="mobile-fav-dot" style="display:none;"></span>
       </a>
       <a href="#planner" class="mobile-nav-item" data-view="planner">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+          <line x1="16" y1="2" x2="16" y2="6" />
+          <line x1="8" y1="2" x2="8" y2="6" />
+          <line x1="3" y1="10" x2="21" y2="10" />
+        </svg>
         <span>Planner</span>
       </a>
     </div>
@@ -1206,7 +1346,10 @@
         </div>
         <form class="footer-cta-form" id="footer-search-form">
           <div class="footer-cta-input-wrap">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
             <input type="text" id="footer-search-input" placeholder="Search (e.g. Risotto, Tikka, Lentils)..."
               aria-label="Footer search">
           </div>
@@ -1224,7 +1367,8 @@
           </div>
           <p class="footer-motto">Straightforward recipes for everyday cooking.</p>
           <p class="footer-bio">
-            A practical cooking companion with weekly meal planning, pantry ingredient matching, and step-by-step instructions.
+            A practical cooking companion with weekly meal planning, pantry ingredient matching, and step-by-step
+            instructions.
           </p>
         </div>
 
